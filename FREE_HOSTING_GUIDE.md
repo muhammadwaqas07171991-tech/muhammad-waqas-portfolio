@@ -26,7 +26,7 @@ This portfolio is a static website, so it can be hosted for free.
 ## Before Publishing
 
 - Upload all `.html`, `.css`, and `.js` files, not only `index.html`.
-- Upload the full `publications` folder with the site files.
+- Upload the full `papers` folder with the site files. This folder uses web-safe publication filenames for GitHub Pages.
 - Upload `Logo.png` and `753134.png` with the site files.
 - Replace or remove any contact information you do not want public.
 - Check every publication title and year.
