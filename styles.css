@@ -575,6 +575,135 @@ h3 {
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
 }
 
+.flag {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 38px;
+  overflow: hidden;
+  border: 1px solid rgba(8, 35, 31, 0.14);
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 12px 24px rgba(5, 32, 29, 0.12);
+}
+
+.flag-badge.flag {
+  width: 64px;
+  height: 44px;
+  margin-bottom: 22px;
+  border-radius: 12px;
+}
+
+.flag-pk {
+  background: linear-gradient(90deg, #ffffff 0 24%, #01411c 24% 100%);
+}
+
+.flag-pk::after {
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: -5px 0 0 1px #ffffff;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.flag-th {
+  background: linear-gradient(180deg, #a51931 0 16%, #ffffff 16% 30%, #2d2a4a 30% 70%, #ffffff 70% 84%, #a51931 84% 100%);
+}
+
+.flag-kr {
+  background: #ffffff;
+}
+
+.flag-kr::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #cd2e3a 0 50%, #0047a0 50% 100%);
+  content: "";
+  transform: translate(-50%, -50%) rotate(25deg);
+}
+
+.flag-it {
+  background: linear-gradient(90deg, #009246 0 33.3%, #ffffff 33.3% 66.6%, #ce2b37 66.6% 100%);
+}
+
+.flag-cn {
+  background: #de2910;
+}
+
+.flag-cn::before {
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  color: #ffde00;
+  content: "★";
+  font-size: 14px;
+  line-height: 1;
+}
+
+.flag-ca {
+  background: linear-gradient(90deg, #d52b1e 0 25%, #ffffff 25% 75%, #d52b1e 75% 100%);
+}
+
+.flag-ca::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #d52b1e;
+  content: "✦";
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+}
+
+.flag-tr {
+  background: #e30a17;
+}
+
+.flag-tr::before {
+  position: absolute;
+  left: 23px;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: -5px 0 0 1px #ffffff;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.flag-tr::after {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  color: #ffffff;
+  content: "★";
+  font-size: 10px;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+
+.flag-mm {
+  background: linear-gradient(180deg, #fecb00 0 33.3%, #34b233 33.3% 66.6%, #ea2839 66.6% 100%);
+}
+
+.flag-mm::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #ffffff;
+  content: "★";
+  font-size: 18px;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+
 .impact-grid h3 {
   color: var(--lime);
   font-size: 1.48rem;
@@ -623,10 +752,9 @@ h3 {
   line-height: 1;
 }
 
-.country-grid span {
+.country-grid .flag {
   display: block;
   margin-bottom: 20px;
-  font-size: 2.2rem;
 }
 
 .country-grid strong {
