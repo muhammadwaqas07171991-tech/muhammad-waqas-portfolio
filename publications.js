@@ -1,4 +1,4 @@
-const publicationFolder = "Publications_Muhammad(2022_06 to 2026_06)";
+const publicationFolder = "publications";
 
 const publicationFiles = [
   { year: "2022", type: "pdf", title: "On-Farm Composting of Agricultural Waste Materials for Sustainable Agriculture in Pakistan", file: "2022. On-Farm Composting of Agricultural Waste Materials forSustainable Agriculture in Pakistan.pdf" },

@@ -26,7 +26,7 @@ This portfolio is a static website, so it can be hosted for free.
 ## Before Publishing
 
 - Upload all `.html`, `.css`, and `.js` files, not only `index.html`.
-- Upload the full `Publications_Muhammad(2022_06 to 2026_06)` folder with the site files.
+- Upload the full `publications` folder with the site files.
 - Upload `Logo.png` and `753134.png` with the site files.
 - Replace or remove any contact information you do not want public.
 - Check every publication title and year.
