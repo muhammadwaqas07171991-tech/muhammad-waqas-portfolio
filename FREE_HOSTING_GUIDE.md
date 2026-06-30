@@ -28,11 +28,11 @@ This portfolio is a static website, so it can be hosted for free.
 - Upload all `.html`, `.css`, and `.js` files, not only `index.html`.
 - If your publication PDFs/PNGs are uploaded directly in the repository root, keep the current `publications.js` file. It links to those root-level publication files.
 - Upload all `preview-*.jpg` files too. They are first-page image previews for the publication cards and should sit in the repository root beside `publications.js`.
-- Upload `models.html`, `Kwater.png`, `KwGAI-logo.png`, and `K_WaterGuard_AI_Student_Manual.pdf` for the model presentation and K-WaterGuard AI Agent page.
+- Upload `models.html`, `Kwater.png`, `KwGAI-logo.png`, and the model flow diagram image files for the model presentation page.
+- Do not upload `K_WaterGuard_AI_Student_Manual.pdf`; the K-WaterGuard section now links only to the live dashboard.
 - Upload the `flags` folder too. It contains local SVG flags used on the Experience page.
 - The K-WaterGuard AI dashboard button links to `https://muhammadwaqas07171991-tech.github.io/k-waterguard-dashboard/`.
 - Upload `Logo.png` and `753134.png` with the site files.
 - Replace or remove any contact information you do not want public.
 - Check every publication title and year.
-- Confirm that the downloadable CV is the version you want visitors to see.
-- Consider exporting your CV as PDF later, because PDF is easier for visitors to open than DOCX.
+- Do not upload the CV file unless you decide later that you want a public CV download.
