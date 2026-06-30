@@ -594,115 +594,19 @@ h3 {
   border-radius: 12px;
 }
 
-.flag-pk {
-  background: linear-gradient(90deg, #ffffff 0 24%, #01411c 24% 100%);
+.flag::before,
+.flag::after {
+  display: none;
 }
 
-.flag-pk::after {
-  position: absolute;
-  left: 45%;
-  top: 50%;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  box-shadow: -5px 0 0 1px #ffffff;
-  content: "";
-  transform: translate(-50%, -50%);
-}
-
-.flag-th {
-  background: linear-gradient(180deg, #a51931 0 16%, #ffffff 16% 30%, #2d2a4a 30% 70%, #ffffff 70% 84%, #a51931 84% 100%);
-}
-
-.flag-kr {
-  background: #ffffff;
-}
-
-.flag-kr::before {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #cd2e3a 0 50%, #0047a0 50% 100%);
-  content: "";
-  transform: translate(-50%, -50%) rotate(25deg);
-}
-
-.flag-it {
-  background: linear-gradient(90deg, #009246 0 33.3%, #ffffff 33.3% 66.6%, #ce2b37 66.6% 100%);
-}
-
-.flag-cn {
-  background: #de2910;
-}
-
-.flag-cn::before {
-  position: absolute;
-  left: 12px;
-  top: 8px;
-  color: #ffde00;
-  content: "★";
-  font-size: 14px;
-  line-height: 1;
-}
-
-.flag-ca {
-  background: linear-gradient(90deg, #d52b1e 0 25%, #ffffff 25% 75%, #d52b1e 75% 100%);
-}
-
-.flag-ca::before {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  color: #d52b1e;
-  content: "✦";
-  font-size: 15px;
-  transform: translate(-50%, -50%);
-}
-
-.flag-tr {
-  background: #e30a17;
-}
-
-.flag-tr::before {
-  position: absolute;
-  left: 23px;
-  top: 50%;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  box-shadow: -5px 0 0 1px #ffffff;
-  content: "";
-  transform: translate(-50%, -50%);
-}
-
-.flag-tr::after {
-  position: absolute;
-  left: 32px;
-  top: 50%;
-  color: #ffffff;
-  content: "★";
-  font-size: 10px;
-  line-height: 1;
-  transform: translate(-50%, -50%);
-}
-
-.flag-mm {
-  background: linear-gradient(180deg, #fecb00 0 33.3%, #34b233 33.3% 66.6%, #ea2839 66.6% 100%);
-}
-
-.flag-mm::before {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  color: #ffffff;
-  content: "★";
-  font-size: 18px;
-  line-height: 1;
-  transform: translate(-50%, -50%);
-}
+.flag-pk { background: url("flags/pk.svg") center / cover no-repeat; }
+.flag-th { background: url("flags/th.svg") center / cover no-repeat; }
+.flag-kr { background: url("flags/kr.svg") center / cover no-repeat; }
+.flag-it { background: url("flags/it.svg") center / cover no-repeat; }
+.flag-cn { background: url("flags/cn.svg") center / cover no-repeat; }
+.flag-ca { background: url("flags/ca.svg") center / cover no-repeat; }
+.flag-tr { background: url("flags/tr.svg") center / cover no-repeat; }
+.flag-mm { background: url("flags/mm.svg") center / cover no-repeat; }
 
 .impact-grid h3 {
   color: var(--lime);
@@ -834,6 +738,107 @@ h3 {
   gap: 8px;
   margin: 18px 0 0;
   padding-left: 18px;
+}
+
+.model-diagram,
+.agent-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 22px 0;
+  border: 1px solid rgba(8, 35, 31, 0.08);
+  border-radius: 20px;
+  padding: 14px;
+  background:
+    linear-gradient(135deg, rgba(6, 27, 25, 0.94), rgba(0, 166, 178, 0.72)),
+    radial-gradient(circle at 92% 10%, rgba(217, 255, 114, 0.28), transparent 32%);
+}
+
+.model-diagram em,
+.agent-diagram span {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 9px 11px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.model-diagram b,
+.agent-diagram b {
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--lime);
+}
+
+.graph-diagram,
+.signal-diagram {
+  position: relative;
+  min-height: 142px;
+  margin: 22px 0;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 16px;
+  background:
+    linear-gradient(135deg, rgba(6, 27, 25, 0.95), rgba(0, 166, 178, 0.66)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 42px);
+}
+
+.graph-diagram::before,
+.signal-diagram::before {
+  position: absolute;
+  inset: 24px;
+  content: "";
+  background:
+    linear-gradient(35deg, transparent 48%, rgba(217, 255, 114, 0.8) 49%, rgba(217, 255, 114, 0.8) 51%, transparent 52%),
+    linear-gradient(145deg, transparent 48%, rgba(255, 255, 255, 0.35) 49%, rgba(255, 255, 255, 0.35) 51%, transparent 52%);
+}
+
+.graph-diagram i,
+.signal-diagram i {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin: 18px 13px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 8px rgba(217, 255, 114, 0.12);
+}
+
+.signal-diagram i {
+  width: 12px;
+  border-radius: 999px;
+}
+
+.signal-diagram i:nth-child(1) { height: 28px; }
+.signal-diagram i:nth-child(2) { height: 44px; }
+.signal-diagram i:nth-child(3) { height: 34px; }
+.signal-diagram i:nth-child(4) { height: 66px; }
+.signal-diagram i:nth-child(5) { height: 48px; }
+.signal-diagram i:nth-child(6) { height: 76px; }
+.signal-diagram i:nth-child(7) { height: 58px; }
+
+.graph-diagram strong,
+.signal-diagram strong {
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 0.88rem;
+}
+
+.agent-diagram {
+  margin-bottom: 26px;
 }
 
 .workflow-section {
