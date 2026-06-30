@@ -30,6 +30,7 @@ This portfolio is a static website, so it can be hosted for free.
 - Upload all `preview-*.jpg` files too. They are first-page image previews for the publication cards and should sit in the repository root beside `publications.js`.
 - Upload `models.html`, `Kwater.png`, `KwGAI-logo.png`, and `K_WaterGuard_AI_Student_Manual.pdf` for the model presentation and K-WaterGuard AI Agent page.
 - Upload the `flags` folder too. It contains local SVG flags used on the Experience page.
+- The K-WaterGuard AI dashboard button links to `https://muhammadwaqas07171991-tech.github.io/k-waterguard-dashboard/`.
 - Upload `Logo.png` and `753134.png` with the site files.
 - Replace or remove any contact information you do not want public.
 - Check every publication title and year.
