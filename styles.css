@@ -258,7 +258,8 @@ h3 {
 }
 
 .hero-actions,
-.contact-card {
+.contact-card,
+.cta-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -433,6 +434,11 @@ h3 {
 
 .feature-grid,
 .service-grid,
+.case-study-grid,
+.topic-grid,
+.summary-grid,
+.interactive-grid,
+.option-grid,
 .impact-grid,
 .timeline,
 .publication-list,
@@ -451,9 +457,17 @@ h3 {
 }
 
 .service-grid,
+.case-study-grid,
+.summary-grid,
+.interactive-grid,
+.option-grid,
 .impact-grid,
 .publication-list {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.topic-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .timeline {
@@ -466,6 +480,11 @@ h3 {
 
 .feature-grid article,
 .service-grid article,
+.case-study-grid article,
+.topic-grid article,
+.summary-grid article,
+.interactive-grid article,
+.option-grid article,
 .timeline article,
 .publication-list article,
 .education-list article,
@@ -483,6 +502,11 @@ h3 {
 
 .feature-grid article::before,
 .service-grid article::before,
+.case-study-grid article::before,
+.topic-grid article::before,
+.summary-grid article::before,
+.interactive-grid article::before,
+.option-grid article::before,
 .timeline article::before,
 .publication-list article::before,
 .education-list article::before {
@@ -495,6 +519,11 @@ h3 {
 
 .feature-grid article,
 .service-grid article,
+.case-study-grid article,
+.topic-grid article,
+.summary-grid article,
+.interactive-grid article,
+.option-grid article,
 .timeline article,
 .publication-list article,
 .education-list article {
@@ -503,6 +532,11 @@ h3 {
 
 .feature-grid article:hover,
 .service-grid article:hover,
+.case-study-grid article:hover,
+.topic-grid article:hover,
+.summary-grid article:hover,
+.interactive-grid article:hover,
+.option-grid article:hover,
 .timeline article:hover,
 .publication-list article:hover,
 .education-list article:hover,
@@ -513,6 +547,11 @@ h3 {
 
 .feature-grid p,
 .service-grid p,
+.case-study-grid p,
+.topic-grid p,
+.summary-grid p,
+.interactive-grid p,
+.option-grid p,
 .timeline p,
 .timeline span,
 .publication-list p,
@@ -540,6 +579,75 @@ h3 {
   color: #ffffff;
   font-weight: 950;
   box-shadow: 0 14px 28px rgba(0, 166, 178, 0.18);
+}
+
+.case-study-section,
+.publication-topics-section,
+.interactive-models-section,
+.consultation-options {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(0, 166, 178, 0.1), transparent 28vw),
+    rgba(255, 255, 255, 0.5);
+}
+
+.case-study-grid article,
+.summary-grid article,
+.interactive-grid article,
+.option-grid article {
+  min-height: 300px;
+}
+
+.case-study-grid span,
+.topic-grid span,
+.interactive-grid span,
+.option-grid span {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  padding: 7px 11px;
+  background: rgba(0, 166, 178, 0.12);
+  color: var(--forest);
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.case-study-grid strong {
+  color: var(--deep);
+}
+
+.topic-grid article {
+  min-height: 220px;
+}
+
+.lay-summary-section {
+  background:
+    radial-gradient(circle at 88% 10%, rgba(217, 255, 114, 0.2), transparent 28vw),
+    #f7faf4;
+}
+
+.summary-grid span {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  padding: 6px 11px;
+  background: rgba(255, 116, 77, 0.1);
+  color: var(--coral);
+  font-size: 0.8rem;
+  font-weight: 950;
+}
+
+.interactive-grid article,
+.option-grid article {
+  display: flex;
+  flex-direction: column;
+}
+
+.interactive-grid .button,
+.option-grid .mini-button {
+  width: fit-content;
+  margin-top: auto;
 }
 
 .impact-section {
@@ -745,6 +853,11 @@ h3 {
   gap: 8px;
   margin: 18px 0 0;
   padding-left: 18px;
+}
+
+.model-link {
+  width: fit-content;
+  margin-top: 18px;
 }
 
 .model-figure {
@@ -1224,6 +1337,12 @@ h3 {
   color: #1d2108;
 }
 
+.model-link,
+.option-grid .mini-button {
+  flex: 0 0 auto;
+  width: fit-content;
+}
+
 .tag-cloud {
   display: flex;
   flex-wrap: wrap;
@@ -1322,6 +1441,11 @@ h3 {
   .waterguard-section,
   .slide-grid,
   .service-grid,
+  .case-study-grid,
+  .topic-grid,
+  .summary-grid,
+  .interactive-grid,
+  .option-grid,
   .impact-grid,
   .timeline,
   .publication-list,
@@ -1366,6 +1490,11 @@ h3 {
   .waterguard-section,
   .slide-grid,
   .service-grid,
+  .case-study-grid,
+  .topic-grid,
+  .summary-grid,
+  .interactive-grid,
+  .option-grid,
   .impact-grid,
   .timeline,
   .publication-list,
@@ -1393,6 +1522,11 @@ h3 {
   .download-card,
   .feature-grid article,
   .service-grid article,
+  .case-study-grid article,
+  .topic-grid article,
+  .summary-grid article,
+  .interactive-grid article,
+  .option-grid article,
   .timeline article,
   .publication-list article,
   .education-list article {
