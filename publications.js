@@ -337,6 +337,106 @@ function absoluteUrl(path) {
   return new URL(encodeURI(path), window.location.href).href;
 }
 
+const publicationKeywordGroups = [
+  ["machine learning", "ml", "soft computing", "artificial intelligence", "ai", "data-driven model", "predictive modeling"],
+  ["deep learning", "dl", "rnn", "lstm", "wavenet", "gan", "generative adversarial network", "graph neural network", "gnn", "hybrid deep learning"],
+  ["hydrology", "hydrological modeling", "river basin", "watershed", "runoff", "rainfall runoff", "streamflow", "water resources", "ungauged basin", "regionalization"],
+  ["rainfall", "precipitation", "rainfall forecasting", "precipitation forecasting", "daily precipitation", "downscaling", "meteorological forecasting", "weather prediction"],
+  ["drought", "meteorological drought", "climate risk", "climate variability", "climate change", "enso", "el nino", "cmip6", "gcm", "wrf", "nwp", "numerical weather prediction"],
+  ["evapotranspiration", "potential evapotranspiration", "pet", "crop water requirement", "crop water requirements", "irrigation", "coffee farming", "greenhouse", "smart agriculture"],
+  ["agriculture", "food security", "crop yield", "rice yield", "rainfed rice", "climate-smart agriculture", "sustainable agriculture", "crop risk"],
+  ["gis", "qgis", "remote sensing", "land use", "land cover", "lulc", "geospatial", "spatial modeling", "spatial feature engineering"],
+  ["biochar", "remediation", "soil amendment", "wastewater", "pesticide wastewater", "phthalate", "chromium", "composting", "agricultural waste", "biorefinery"],
+  ["environmental data science", "environmental modeling", "sustainability", "decision support", "water intelligence", "climate adaptation"]
+];
+
+const compactKeywordLabels = [
+  ["machine learning", "Machine learning"],
+  ["deep learning", "Deep learning"],
+  ["hydrology", "Hydrology"],
+  ["precipitation", "Precipitation"],
+  ["drought", "Drought"],
+  ["enso", "ENSO"],
+  ["cmip6", "CMIP6"],
+  ["wrf", "WRF"],
+  ["evapotranspiration", "Evapotranspiration"],
+  ["crop", "Agriculture"],
+  ["gis", "GIS"],
+  ["remote sensing", "Remote sensing"],
+  ["graph neural network", "Graph neural network"],
+  ["biochar", "Biochar"],
+  ["remediation", "Remediation"],
+  ["wastewater", "Wastewater"]
+];
+
+let activePublicationFilter = "all";
+let activePublicationSearch = "";
+
+function normalizeSearchText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/ñ/g, "n")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function expandedSearchTerms(query) {
+  const normalizedQuery = normalizeSearchText(query);
+  if (!normalizedQuery) return [];
+  const terms = new Set([normalizedQuery]);
+  publicationKeywordGroups.forEach((group) => {
+    const normalizedGroup = group.map(normalizeSearchText);
+    if (normalizedGroup.some((term) => term && normalizedQuery.includes(term))) {
+      normalizedGroup.forEach((term) => terms.add(term));
+    }
+  });
+  return Array.from(terms).filter(Boolean);
+}
+
+function publicationKeywords(item) {
+  const titleText = normalizeSearchText(`${item.title} ${item.file} ${item.year}`);
+  const keywords = new Set([
+    "Muhammad Waqas",
+    "Dr. Muhammad Waqas",
+    "research publication",
+    "citation-ready publication"
+  ]);
+
+  publicationKeywordGroups.forEach((group) => {
+    if (group.some((term) => titleText.includes(normalizeSearchText(term)))) {
+      group.forEach((term) => keywords.add(term));
+    }
+  });
+
+  return Array.from(keywords);
+}
+
+function publicationSearchText(item) {
+  return normalizeSearchText([
+    item.title,
+    item.file,
+    item.year,
+    item.type,
+    publicationKeywords(item).join(" ")
+  ].join(" "));
+}
+
+function publicationVisibleKeywords(item) {
+  const searchText = publicationSearchText(item);
+  return compactKeywordLabels
+    .filter(([term]) => searchText.includes(normalizeSearchText(term)))
+    .map(([, label]) => label)
+    .slice(0, 4);
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function injectPublicationStructuredData() {
   if (!document.head) return;
 
@@ -370,13 +470,7 @@ function injectPublicationStructuredData() {
             "contentUrl": absoluteUrl(item.file),
             "encodingFormat": item.type === "pdf" ? "application/pdf" : "image/png"
           },
-          "keywords": [
-            "AI climate modeling",
-            "hydrology",
-            "smart agriculture",
-            "machine learning",
-            "environmental data science"
-          ]
+          "keywords": publicationKeywords(item)
         }
       }))
     }
@@ -388,20 +482,33 @@ function injectPublicationStructuredData() {
   document.head.appendChild(script);
 }
 
-function renderDownloads(filter = "all") {
+function renderDownloads(filter = activePublicationFilter, query = activePublicationSearch) {
   const downloadGrid = document.getElementById("download-grid");
   if (!downloadGrid) return;
 
-  const visibleFiles = publicationFiles.filter((item) => filter === "all" || item.year === filter);
+  activePublicationFilter = filter;
+  activePublicationSearch = query;
+
+  const searchTerms = expandedSearchTerms(query);
+  const visibleFiles = publicationFiles.filter((item) => {
+    const yearMatched = filter === "all" || item.year === filter;
+    const textMatched = !searchTerms.length || searchTerms.some((term) => publicationSearchText(item).includes(term));
+    return yearMatched && textMatched;
+  });
+
   downloadGrid.innerHTML = visibleFiles.map((item) => {
     const url = publicationUrl(item.file);
+    const safeTitle = escapeHtml(item.title);
     const preview = item.preview
-      ? `<img loading="lazy" src="${previewUrl(item.preview)}" alt="First page preview of ${item.title}">`
+      ? `<img loading="lazy" src="${previewUrl(item.preview)}" alt="First page preview of ${safeTitle}">`
       : `<div class="paper-preview"><span>${item.year}</span><strong>${item.type.toUpperCase()}</strong><p>Open the full paper to view and download the file.</p></div>`;
+    const visibleKeywords = publicationVisibleKeywords(item)
+      .map((keyword) => `<span class="publication-keyword">${escapeHtml(keyword)}</span>`)
+      .join("");
 
     return `
       <article class="download-card" id="${publicationSlug(item.title)}">
-        <a class="preview-frame" href="${url}" target="_blank" rel="noopener" aria-label="Open ${item.title}">
+        <a class="preview-frame" href="${url}" target="_blank" rel="noopener" aria-label="Open ${safeTitle}">
           ${preview}
         </a>
         <div class="download-card-body">
@@ -409,7 +516,8 @@ function renderDownloads(filter = "all") {
             <span>${item.year}</span>
             <span>${item.type.toUpperCase()}</span>
           </div>
-          <h3>${item.title}</h3>
+          <h3>${safeTitle}</h3>
+          ${visibleKeywords ? `<div class="download-keywords" aria-label="Publication keywords">${visibleKeywords}</div>` : ""}
           <div class="download-actions">
             <a class="mini-button" href="${url}" target="_blank" rel="noopener">Open</a>
             <a class="mini-button strong" href="${url}" download>Download</a>
@@ -418,13 +526,36 @@ function renderDownloads(filter = "all") {
       </article>
     `;
   }).join("");
+
+  const status = document.getElementById("publication-search-status");
+  if (status) {
+    const filterText = filter === "all" ? "all years" : filter;
+    const queryText = query ? ` for "${query}"` : "";
+    status.textContent = `${visibleFiles.length} publication${visibleFiles.length === 1 ? "" : "s"} shown in ${filterText}${queryText}. Search expands related citation keywords and abbreviations.`;
+  }
 }
 
 document.querySelectorAll(".filter-button").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".filter-button").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
-    renderDownloads(button.dataset.filter);
+    renderDownloads(button.dataset.filter, activePublicationSearch);
+  });
+});
+
+const publicationSearchInput = document.getElementById("publication-search");
+if (publicationSearchInput) {
+  publicationSearchInput.addEventListener("input", () => {
+    renderDownloads(activePublicationFilter, publicationSearchInput.value.trim());
+  });
+}
+
+document.querySelectorAll("[data-publication-search]").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!publicationSearchInput) return;
+    publicationSearchInput.value = button.dataset.publicationSearch || button.textContent.trim();
+    renderDownloads(activePublicationFilter, publicationSearchInput.value.trim());
+    publicationSearchInput.focus();
   });
 });
 

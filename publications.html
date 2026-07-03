@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Publication archive of Dr. Muhammad Waqas with papers on AI climate modeling, hydrology, smart agriculture, GIS, precipitation forecasting, drought prediction, and environmental data science."
+      content="Publication archive of Dr. Muhammad Waqas with papers on AI climate modeling, hydrology, smart agriculture, GIS, remote sensing, precipitation forecasting, drought prediction, ENSO, CMIP6, runoff, streamflow, evapotranspiration, groundwater, biochar, remediation, and environmental data science."
     >
     <meta name="robots" content="index, follow">
+    <meta name="keywords" content="Muhammad Waqas publications, Dr Muhammad Waqas research, AI climate modeling, hydrology, river basin modeling, machine learning hydrology, deep learning hydrology, rainfall forecasting, precipitation forecasting, precipitation downscaling, drought prediction, ENSO, CMIP6, numerical weather prediction, WRF rainfall prediction, streamflow modeling, runoff estimation, groundwater prediction, evapotranspiration, crop water requirements, smart agriculture, climate-smart agriculture, crop yield prediction, GIS, QGIS, remote sensing, land use land cover, geospatial graph neural network, environmental remediation, biochar, composting, wastewater treatment, pesticide wastewater, water resources, environmental data science">
     <meta name="citation_author" content="Muhammad Waqas">
     <meta name="citation_publication_date" content="2026">
-    <meta name="citation_keywords" content="AI climate modeling; hydrology; smart agriculture; machine learning; deep learning; GIS; precipitation forecasting; drought prediction; environmental data science">
+    <meta name="citation_keywords" content="AI climate modeling; hydrology; river basin modeling; smart agriculture; machine learning; deep learning; GIS; remote sensing; precipitation forecasting; rainfall forecasting; precipitation downscaling; drought prediction; ENSO; CMIP6; numerical weather prediction; WRF; streamflow; runoff; groundwater; evapotranspiration; crop water requirements; biochar; remediation; environmental data science">
     <title>Publications | Dr. Muhammad Waqas</title>
     <link rel="stylesheet" href="styles.css?v=consulting-upgrade-20260701">
     <link rel="alternate" type="application/json" href="research-index.json" title="Machine-readable publication index">
@@ -115,6 +116,19 @@
           <button class="filter-button" type="button" data-filter="2024">2024</button>
           <button class="filter-button" type="button" data-filter="2023">2023</button>
           <button class="filter-button" type="button" data-filter="2022">2022</button>
+        </div>
+        <div class="publication-search-panel" aria-label="Publication keyword search">
+          <input id="publication-search" class="publication-search" type="search" placeholder="Search publications by title, keyword, method, basin, climate driver, or citation topic" autocomplete="off">
+          <div class="publication-keyword-chips" aria-label="Suggested publication searches">
+            <button type="button" data-publication-search="machine learning hydrology river basin modeling">ML hydrology</button>
+            <button type="button" data-publication-search="deep learning rainfall precipitation forecasting">Rainfall forecasting</button>
+            <button type="button" data-publication-search="drought prediction climate risk ENSO CMIP6">Climate risk</button>
+            <button type="button" data-publication-search="GIS remote sensing land use land cover">GIS remote sensing</button>
+            <button type="button" data-publication-search="evapotranspiration crop water requirements smart agriculture">Crop water</button>
+            <button type="button" data-publication-search="biochar remediation wastewater composting">Remediation</button>
+            <button type="button" data-publication-search="graph neural network geospatial crop yield">GNN crop yield</button>
+          </div>
+          <p id="publication-search-status" class="publication-search-status">Search supports expanded citation keywords, abbreviations, and related research terms.</p>
         </div>
         <div id="download-grid" class="download-grid" aria-live="polite"></div>
       </section>
