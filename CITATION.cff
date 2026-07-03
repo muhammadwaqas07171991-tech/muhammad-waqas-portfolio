@@ -1,0 +1,18 @@
+﻿cff-version: 1.2.0
+message: "If you use or cite publications from this portfolio, please cite the original paper or publisher DOI where available."
+title: "Publication archive of Dr. Muhammad Waqas"
+type: dataset
+authors:
+  - family-names: "Waqas"
+    given-names: "Muhammad"
+abstract: "A public archive of research outputs in AI climate forecasting, hydrology, smart agriculture, GIS, numerical weather prediction, and environmental data science."
+keywords:
+  - climate forecasting
+  - hydrology
+  - smart agriculture
+  - artificial intelligence
+  - machine learning
+  - GIS
+  - remote sensing
+repository-code: "https://muhammadwaqas07171991-tech.github.io/portfolio_site/"
+url: "https://muhammadwaqas07171991-tech.github.io/portfolio_site/publications.html"

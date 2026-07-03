@@ -324,6 +324,70 @@ function previewUrl(file) {
   return encodeURI(file);
 }
 
+function publicationSlug(title) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 90)
+    .replace(/-+$/g, "");
+}
+
+function absoluteUrl(path) {
+  return new URL(encodeURI(path), window.location.href).href;
+}
+
+function injectPublicationStructuredData() {
+  if (!document.head) return;
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Publications | Dr. Muhammad Waqas",
+    "description": "Publication archive for Dr. Muhammad Waqas covering AI climate modeling, hydrology, smart agriculture, GIS, and environmental data science.",
+    "author": {
+      "@type": "Person",
+      "name": "Dr. Muhammad Waqas",
+      "url": new URL("index.html", window.location.href).href
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": publicationFiles.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "ScholarlyArticle",
+          "name": item.title,
+          "headline": item.title,
+          "datePublished": item.year,
+          "author": {
+            "@type": "Person",
+            "name": "Muhammad Waqas"
+          },
+          "url": `${new URL("publications.html", window.location.href).href}#${publicationSlug(item.title)}`,
+          "encoding": {
+            "@type": "MediaObject",
+            "contentUrl": absoluteUrl(item.file),
+            "encodingFormat": item.type === "pdf" ? "application/pdf" : "image/png"
+          },
+          "keywords": [
+            "AI climate modeling",
+            "hydrology",
+            "smart agriculture",
+            "machine learning",
+            "environmental data science"
+          ]
+        }
+      }))
+    }
+  };
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(structuredData);
+  document.head.appendChild(script);
+}
+
 function renderDownloads(filter = "all") {
   const downloadGrid = document.getElementById("download-grid");
   if (!downloadGrid) return;
@@ -336,7 +400,7 @@ function renderDownloads(filter = "all") {
       : `<div class="paper-preview"><span>${item.year}</span><strong>${item.type.toUpperCase()}</strong><p>Open the full paper to view and download the file.</p></div>`;
 
     return `
-      <article class="download-card">
+      <article class="download-card" id="${publicationSlug(item.title)}">
         <a class="preview-frame" href="${url}" target="_blank" rel="noopener" aria-label="Open ${item.title}">
           ${preview}
         </a>
@@ -364,4 +428,5 @@ document.querySelectorAll(".filter-button").forEach((button) => {
   });
 });
 
+injectPublicationStructuredData();
 renderDownloads();
