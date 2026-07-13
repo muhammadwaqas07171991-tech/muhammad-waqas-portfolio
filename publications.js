@@ -313,6 +313,13 @@ const publicationFiles = [
     "title": "High-Resolution Evaluation of WRF Cumulus Parameterization Schemes for Rainfall Prediction in Thailand",
     "file": "2026. High-Resolution Evaluation of WRF Cumulus Parameterization Schemes for Rainfall Prediction in Thailand.pdf",
     "preview": "preview-2026-45.jpg"
+  },
+  {
+    "year": "2026",
+    "type": "pdf",
+    "title": "Estimation and Evaluation of Reference Evapotranspiration Using an AI-Agent-Based Automated Meteorological Data System",
+    "file": "2026 Estimation and Evaluation of Reference Evapotranspiration.pdf",
+    "preview": "preview-2026-46.jpg"
   }
 ];
 

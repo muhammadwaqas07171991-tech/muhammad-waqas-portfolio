@@ -38,7 +38,7 @@
                                                     "environmental data science"
                                                 ]
                 },
-    "generated":  "2026-07-03",
+    "generated":  "2026-07-13",
     "publications":  [
                          {
                              "title":  "On-Farm Composting of Agricultural Waste Materials for Sustainable Agriculture in Pakistan",
@@ -1793,6 +1793,45 @@
                              "preview":  "preview-2026-45.jpg",
                              "previewUrl":  "preview-2026-45.jpg",
                              "citationHint":  "High-Resolution Evaluation of WRF Cumulus Parameterization Schemes for Rainfall Prediction in Thailand. Muhammad Waqas, 2026."
+                         },
+                         {
+                             "title":  "Estimation and Evaluation of Reference Evapotranspiration Using an AI-Agent-Based Automated Meteorological Data System",
+                             "year":  2026,
+                             "type":  "pdf",
+                             "author":  "Muhammad Waqas",
+                             "topics":  [
+                                            "climate forecasting",
+                                            "hydrology and water resources"
+                                        ],
+                             "searchKeywords":  [
+                                                    "Muhammad Waqas",
+                                                    "Dr. Muhammad Waqas",
+                                                    "research publication",
+                                                    "citation-ready publication",
+                                                    "hydrology",
+                                                    "hydrological modeling",
+                                                    "river basin modeling",
+                                                    "watershed modeling",
+                                                    "runoff estimation",
+                                                    "streamflow prediction",
+                                                    "water resources",
+                                                    "groundwater prediction",
+                                                    "evapotranspiration",
+                                                    "PET",
+                                                    "rainfall forecasting",
+                                                    "precipitation forecasting",
+                                                    "precipitation downscaling",
+                                                    "daily precipitation",
+                                                    "meteorological forecasting",
+                                                    "weather prediction"
+                                                ],
+                             "landingPage":  "publications.html#estimation-and-evaluation-of-reference-evapotranspiration-using-an-ai-agent-based-automate",
+                             "file":  "2026 Estimation and Evaluation of Reference Evapotranspiration.pdf",
+                             "fileUrl":  "2026%20Estimation%20and%20Evaluation%20of%20Reference%20Evapotranspiration.pdf",
+                             "absoluteFileUrl":  "https://muhammadwaqas07171991-tech.github.io/portfolio_site/2026%20Estimation%20and%20Evaluation%20of%20Reference%20Evapotranspiration.pdf",
+                             "preview":  "preview-2026-46.jpg",
+                             "previewUrl":  "preview-2026-46.jpg",
+                             "citationHint":  "Estimation and Evaluation of Reference Evapotranspiration Using an AI-Agent-Based Automated Meteorological Data System. Muhammad Waqas, 2026."
                          }
                      ]
 }
