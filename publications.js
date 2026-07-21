@@ -320,6 +320,13 @@ const publicationFiles = [
     "title": "Estimation and Evaluation of Reference Evapotranspiration Using an AI-Agent-Based Automated Meteorological Data System",
     "file": "2026 Estimation and Evaluation of Reference Evapotranspiration.pdf",
     "preview": "preview-2026-46.jpg"
+  },
+  {
+    "year": "2026",
+    "type": "pdf",
+    "title": "Physics-informed neural networks and variants in weather and hydrological modeling: a systematic review",
+    "file": "2026 Physics-informed neural networks and variants in weather and hydrological modeling.pdf",
+    "preview": "preview-2026-47.jpg"
   }
 ];
 
