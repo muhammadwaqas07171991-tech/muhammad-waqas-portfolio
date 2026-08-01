@@ -1270,6 +1270,10 @@ h3 {
   transition: transform 220ms ease, filter 220ms ease;
 }
 
+.preview-frame img + .paper-preview {
+  display: none;
+}
+
 .download-card:hover .preview-frame img {
   transform: scale(1.025);
   filter: saturate(1.05) contrast(1.03);
@@ -1737,8 +1741,18 @@ h2 {
   display: none;
   place-items: center;
   color: var(--lime);
-  font-size: clamp(4rem, 10vw, 7rem);
+  overflow: hidden;
+  font-size: clamp(2.8rem, 7vw, 5rem);
   font-weight: 950;
+  line-height: 1;
+  text-align: center;
+}
+
+.profile-panel .portrait-fallback {
+  grid-template-columns: 1fr;
+  min-height: auto;
+  padding: 0;
+  background: linear-gradient(135deg, rgba(19, 167, 165, 0.32), rgba(215, 247, 107, 0.18));
 }
 
 .portrait-card.missing-photo .portrait-fallback {
