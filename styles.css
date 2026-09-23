@@ -364,16 +364,18 @@ p {
 .hero,
 .page-hero {
   position: relative;
-  padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 64px);
+  padding: clamp(28px, 4vw, 52px) clamp(20px, 4vw, 48px);
   overflow: hidden;
 }
 
 .hero-home {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.8fr);
-  gap: clamp(36px, 6vw, 80px);
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: clamp(20px, 3.5vw, 40px);
   align-items: center;
-  min-height: calc(90vh - 76px);
+  min-height: auto;
+  padding-top: clamp(24px, 3.5vw, 44px);
+  padding-bottom: clamp(24px, 3.5vw, 44px);
 }
 
 .hero-content {
@@ -382,47 +384,48 @@ p {
 }
 
 .hero-content h1 {
-  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
-  line-height: 1.05;
-  margin-bottom: 20px;
+  font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+  line-height: 1.08;
+  margin-bottom: 16px;
   background: linear-gradient(135deg, #ffffff 40%, #bae6fd 75%, #a7f3d0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-copy {
-  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.6;
   max-width: 640px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
 }
 
 /* Page Hero for Subpages */
 .page-hero {
   text-align: center;
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
-  padding-bottom: 40px;
+  padding-top: clamp(24px, 3.5vw, 44px);
+  padding-bottom: 18px;
 }
 
 .page-hero h1 {
-  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
-  margin-bottom: 18px;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  margin-bottom: 12px;
   background: linear-gradient(135deg, #ffffff 45%, #7dd3fc 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .page-hero p {
-  font-size: 1.15rem;
+  font-size: 1.08rem;
   max-width: 680px;
   margin: 0 auto;
 }
@@ -547,14 +550,14 @@ p {
    SECTIONS & SECTION HEADINGS
 ------------------------------------------------------------- */
 .section {
-  padding: clamp(50px, 7vw, 90px) clamp(20px, 5vw, 64px);
-  max-width: 1320px;
+  padding: clamp(26px, 3.5vw, 44px) clamp(20px, 4vw, 48px);
+  max-width: 1360px;
   margin: 0 auto;
   position: relative;
 }
 
 .section-heading {
-  margin-bottom: 44px;
+  margin-bottom: 24px;
 }
 
 .section-heading.center {
@@ -562,15 +565,15 @@ p {
 }
 
 .section-heading h2 {
-  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-  margin-top: 8px;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  margin-top: 6px;
   background: linear-gradient(135deg, #ffffff 60%, #cbd5e1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .section-heading p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   max-width: 650px;
 }
 
@@ -586,23 +589,23 @@ p {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-xl);
-  padding: clamp(32px, 5vw, 54px);
+  padding: clamp(22px, 3.5vw, 36px);
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 36px;
+  gap: 28px;
   align-items: center;
   box-shadow: var(--shadow-md);
-  margin: 20px auto;
+  margin: 14px auto;
 }
 
 .intro-band h2 {
-  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
   margin-bottom: 0;
 }
 
 .intro-band p {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -613,12 +616,12 @@ p {
 .service-grid,
 .solution-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 20px;
 }
 
 .feature-grid.four {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .feature-grid article,
@@ -631,7 +634,7 @@ p {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
-  padding: 32px 28px;
+  padding: 24px 22px;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   display: flex;
@@ -1326,8 +1329,8 @@ p {
    SITE FOOTER
 ------------------------------------------------------------- */
 .site-footer {
-  margin-top: 80px;
-  padding: 36px clamp(20px, 5vw, 64px);
+  margin-top: 44px;
+  padding: 22px clamp(20px, 4vw, 48px);
   border-top: 1px solid var(--border-glass);
   background: rgba(4, 9, 14, 0.9);
   display: flex;
