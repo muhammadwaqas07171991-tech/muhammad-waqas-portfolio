@@ -64,18 +64,81 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Cinematic Landscape & Ambient Atmosphere (Climate, Hydrology, Agriculture) */
-body::before {
-  content: '';
+/* ==============================================================
+   Cinematic Background Video System & Environmental Atmosphere
+   ============================================================== */
+.bg-video-wrapper {
   position: fixed;
   inset: 0;
-  z-index: -3;
+  width: 100vw;
+  height: 100vh;
+  z-index: -4;
+  overflow: hidden;
   pointer-events: none;
+  background-color: var(--bg-base);
+}
+
+.bg-video-media {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) scale(1.02);
+  object-fit: cover;
+  filter: brightness(0.68) contrast(1.12) saturate(1.15);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  opacity: 0;
+}
+
+.bg-video-media.is-ready {
+  opacity: 1;
+}
+
+/* Atmospheric Mood Tinting for each thematic page */
+body[data-page="home"] .bg-video-media {
+  filter: brightness(0.72) contrast(1.12) saturate(1.22);
+}
+body[data-page="about"] .bg-video-media {
+  filter: brightness(0.68) contrast(1.14) saturate(1.16) hue-rotate(-12deg);
+}
+body[data-page="publications"] .bg-video-media {
+  filter: brightness(0.65) contrast(1.18) saturate(1.12) hue-rotate(18deg);
+}
+body[data-page="models"] .bg-video-media {
+  filter: brightness(0.70) contrast(1.22) saturate(1.28) hue-rotate(28deg);
+}
+body[data-page="experience"] .bg-video-media {
+  filter: brightness(0.68) contrast(1.14) saturate(1.18) hue-rotate(-6deg);
+}
+body[data-page="services"] .bg-video-media {
+  filter: brightness(0.70) contrast(1.15) saturate(1.22) hue-rotate(8deg);
+}
+body[data-page="contact"] .bg-video-media {
+  filter: brightness(0.65) contrast(1.12) saturate(1.12) hue-rotate(-18deg);
+}
+
+/* Luminous Vignette Overlay - ensures glassmorphic cards & text have flawless readability */
+.bg-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background:
-    linear-gradient(180deg, rgba(6, 13, 19, 0.70) 0%, rgba(6, 13, 19, 0.82) 45%, rgba(6, 13, 19, 0.92) 100%),
-    radial-gradient(circle at 82% 18%, rgba(251, 191, 36, 0.12), transparent 40%),
-    url("climate-hydrology-agriculture-bg.jpg") center top / cover no-repeat;
-  filter: saturate(1.15) contrast(1.05);
+    radial-gradient(ellipse 90% 65% at 50% 28%, rgba(6, 13, 19, 0.42) 0%, rgba(6, 13, 19, 0.80) 65%, rgba(6, 13, 19, 0.95) 100%),
+    linear-gradient(180deg, rgba(6, 13, 19, 0.38) 0%, rgba(6, 13, 19, 0.62) 50%, rgba(6, 13, 19, 0.92) 100%);
+  pointer-events: none;
+}
+
+/* Ambient canvas overlay for dynamic moving connected nodes */
+#ambient-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
 }
 
 /* Subtle topological grid overlay */
@@ -83,7 +146,7 @@ body::after {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -1;
   pointer-events: none;
   background-image:
     linear-gradient(rgba(56, 189, 248, 0.02) 1px, transparent 1px),
