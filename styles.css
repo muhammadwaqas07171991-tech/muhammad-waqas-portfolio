@@ -50,11 +50,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  background-color: var(--bg-base);
 }
 
 body {
   margin: 0;
-  background-color: var(--bg-base);
+  background-color: transparent;
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 1rem;
@@ -72,10 +73,10 @@ body {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -4;
+  z-index: -2;
   overflow: hidden;
   pointer-events: none;
-  background-color: var(--bg-base);
+  background: transparent;
 }
 
 .bg-video-media {
@@ -88,9 +89,9 @@ body {
   height: auto;
   transform: translate(-50%, -50%) scale(1.01);
   object-fit: cover;
-  filter: brightness(0.98) contrast(1.06) saturate(1.24);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
-  opacity: 0;
+  filter: brightness(1.05) contrast(1.04) saturate(1.28);
+  transition: opacity 0.8s ease, filter 0.8s ease;
+  opacity: 1;
 }
 
 .bg-video-media.is-ready {
@@ -99,35 +100,33 @@ body {
 
 /* Atmospheric Mood Tinting for each thematic page - Vivid, crisp & luminous */
 body[data-page="home"] .bg-video-media {
-  filter: brightness(1.0) contrast(1.06) saturate(1.28);
+  filter: brightness(1.05) contrast(1.04) saturate(1.30);
 }
 body[data-page="about"] .bg-video-media {
-  filter: brightness(0.98) contrast(1.08) saturate(1.22) hue-rotate(-8deg);
+  filter: brightness(1.03) contrast(1.06) saturate(1.24) hue-rotate(-6deg);
 }
 body[data-page="publications"] .bg-video-media {
-  filter: brightness(0.96) contrast(1.10) saturate(1.18) hue-rotate(12deg);
+  filter: brightness(1.02) contrast(1.08) saturate(1.20) hue-rotate(10deg);
 }
 body[data-page="models"] .bg-video-media {
-  filter: brightness(0.98) contrast(1.12) saturate(1.26) hue-rotate(22deg);
+  filter: brightness(1.04) contrast(1.10) saturate(1.28) hue-rotate(18deg);
 }
 body[data-page="experience"] .bg-video-media {
-  filter: brightness(0.96) contrast(1.08) saturate(1.20) hue-rotate(-4deg);
+  filter: brightness(1.02) contrast(1.06) saturate(1.22) hue-rotate(-4deg);
 }
 body[data-page="services"] .bg-video-media {
-  filter: brightness(0.98) contrast(1.10) saturate(1.24) hue-rotate(8deg);
+  filter: brightness(1.04) contrast(1.08) saturate(1.26) hue-rotate(6deg);
 }
 body[data-page="contact"] .bg-video-media {
-  filter: brightness(0.95) contrast(1.06) saturate(1.15);
+  filter: brightness(1.02) contrast(1.04) saturate(1.20);
 }
 
-/* Crystal-Clear Ambient Vignette - keeps video 100% visible, vibrant, and alive while ensuring cards pop */
+/* Crystal-Clear Ambient Vignette - keeps video 100% visible, vibrant, and alive */
 .bg-video-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    radial-gradient(ellipse 110% 80% at 50% 25%, rgba(6, 13, 19, 0.08) 0%, rgba(6, 13, 19, 0.28) 65%, rgba(6, 13, 19, 0.62) 100%),
-    linear-gradient(180deg, rgba(6, 13, 19, 0.10) 0%, rgba(6, 13, 19, 0.20) 50%, rgba(6, 13, 19, 0.58) 100%);
+  background: radial-gradient(ellipse 130% 90% at 50% 25%, transparent 55%, rgba(6, 13, 19, 0.22) 85%, rgba(6, 13, 19, 0.40) 100%);
   pointer-events: none;
 }
 
@@ -137,7 +136,7 @@ body[data-page="contact"] .bg-video-media {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -2;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -148,9 +147,10 @@ body::after {
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  opacity: 0.25;
   background-image:
-    linear-gradient(rgba(56, 189, 248, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
   background-size: 52px 52px;
   mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 80%);
 }
