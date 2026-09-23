@@ -334,6 +334,13 @@ const publicationFiles = [
     "title": "Non-Noble Metal and Heteroatom Co-Doped Biochar for Cr(VI) Removal: Production, Mechanisms, and Performance Comparison",
     "file": "papers/2026-48.pdf",
     "preview": "preview-2026-48.jpg"
+  },
+  {
+    "year": "2026",
+    "type": "pdf",
+    "title": "CMIP6-Driven Groundwater-Level Projections and Climate Risk Mapping for South Korea Using a Hybrid Deep Learning Framework",
+    "file": "papers/2026-49.pdf",
+    "preview": "preview-2026-49.jpg"
   }
 ];
 
@@ -366,6 +373,7 @@ const publicationKeywordGroups = [
   ["machine learning", "ml", "soft computing", "artificial intelligence", "ai", "data-driven model", "predictive modeling"],
   ["deep learning", "dl", "rnn", "lstm", "wavenet", "gan", "generative adversarial network", "graph neural network", "gnn", "hybrid deep learning"],
   ["hydrology", "hydrological modeling", "river basin", "watershed", "runoff", "rainfall runoff", "streamflow", "water resources", "ungauged basin", "regionalization"],
+  ["groundwater", "groundwater level", "gwl", "cgri", "climate groundwater risk index", "aquifer", "hydrogeology"],
   ["rainfall", "precipitation", "rainfall forecasting", "precipitation forecasting", "daily precipitation", "downscaling", "meteorological forecasting", "weather prediction"],
   ["drought", "meteorological drought", "climate risk", "climate variability", "climate change", "enso", "el nino", "cmip6", "gcm", "wrf", "nwp", "numerical weather prediction"],
   ["evapotranspiration", "potential evapotranspiration", "pet", "crop water requirement", "crop water requirements", "irrigation", "coffee farming", "greenhouse", "smart agriculture"],
@@ -379,6 +387,7 @@ const compactKeywordLabels = [
   ["machine learning", "Machine learning"],
   ["deep learning", "Deep learning"],
   ["hydrology", "Hydrology"],
+  ["groundwater", "Groundwater"],
   ["precipitation", "Precipitation"],
   ["drought", "Drought"],
   ["enso", "ENSO"],
@@ -584,5 +593,18 @@ document.querySelectorAll("[data-publication-search]").forEach((button) => {
   });
 });
 
+function updatePublicationCounts() {
+  const count = typeof publicationFiles !== "undefined" ? publicationFiles.length : 0;
+  if (!count) return;
+  document.querySelectorAll("[data-publication-count]").forEach((el) => {
+    el.textContent = count;
+  });
+}
+
 injectPublicationStructuredData();
 renderDownloads();
+updatePublicationCounts();
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", updatePublicationCounts);
+}

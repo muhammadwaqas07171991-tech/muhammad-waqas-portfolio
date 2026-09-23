@@ -4,12 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About | Dr. Muhammad Waqas</title>
-    <link rel="stylesheet" href="styles.css?v=modern-20260801">
+    <link rel="stylesheet" href="styles.css?v=20260923">
+    <script src="background-animation.js" defer></script>
+    <script src="publications.js?v=20260923" defer></script>
     <script src="analytics.js?v=20260813" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html"><span class="brand-mark">MW</span><span>Dr. Muhammad Waqas</span></a>
+      <a class="brand" href="index.html">
+        <span class="brand-mark">MW</span>
+        <span>Dr. Muhammad Waqas</span>
+      </a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav').classList.toggle('mobile-active')">&#9776;</button>
       <nav class="nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a class="active" href="about.html">About</a>
@@ -23,68 +29,82 @@
 
     <main>
       <section class="page-hero">
-        <div class="hero-logo-bg" aria-hidden="true"></div>
-        <p class="kicker">About</p>
+        <p class="kicker">About Dr. Muhammad Waqas</p>
         <h1>Environmental AI specialist with a field-to-model perspective.</h1>
         <p>
-          My background connects agricultural engineering, hydrology, climate change,
-          GIS, and modern AI modeling for resilient food and water systems.
+          Connecting agricultural engineering, hydrology, climate change,
+          GIS, and modern deep learning for resilient food and water systems.
         </p>
       </section>
 
       <section class="section intro-band">
         <div>
-          <p class="section-label">Profile</p>
-          <h2>Research grounded in real environmental problems.</h2>
+          <p class="section-label">Research Profile</p>
+          <h2>Research grounded in real environmental and climate challenges.</h2>
         </div>
         <p>
-          I bring more than 10 years of research and development experience across Pakistan,
-          Thailand, and South Korea, with a focus on forecasts, publications, decision-support
-          tools, and practical recommendations.
+          I bring more than 10 years of applied research and development experience across Pakistan,
+          Thailand, and South Korea, delivering publication records, decision-support
+          tools, and practical recommendations for water managers and agricultural policy.
         </p>
       </section>
 
-      <section class="section profile-feature">
-        <div class="portrait-card profile-feature-photo">
-          <img src="profile-photo.png?v=20260808" alt="Portrait of Dr. Muhammad Waqas">
-          <div class="portrait-fallback" aria-hidden="true">MW</div>
-        </div>
-        <div>
-          <p class="section-label">Research Identity</p>
-          <h2>Climate, hydrology, and agriculture work with measurable outputs.</h2>
-          <p>
-            This portfolio brings together my publications, model workflows,
-            collaborations, and applied dashboard systems.
-          </p>
-          <div class="profile-stat-row">
-            <span><strong>49</strong> Papers</span>
-            <span><strong>10+</strong> Years</span>
-            <span><strong>8</strong> Collaboration regions</span>
+      <section class="section">
+        <div class="intro-band" style="grid-template-columns: minmax(240px, 320px) 1fr;">
+          <div class="portrait-img-wrapper" style="max-width: 280px; margin: 0 auto;">
+            <img src="profile-photo.png?v=20260917" alt="Portrait of Dr. Muhammad Waqas">
+          </div>
+          <div>
+            <p class="section-label">Research Identity</p>
+            <h2>Climate, hydrology, and agriculture with measurable impact.</h2>
+            <p style="margin-bottom: 24px;">
+              This portfolio synthesizes <span data-publication-count>49</span> peer-reviewed publications, open-source model workflows,
+              international collaborations, and applied monitoring systems in an integrated, transparent record.
+            </p>
+            <div class="metric-strip">
+              <div>
+                <span class="metric" data-publication-count>49</span>
+                <span>Peer-Reviewed Papers</span>
+              </div>
+              <div>
+                <span class="metric">10+</span>
+                <span>Years of Research</span>
+              </div>
+              <div>
+                <span class="metric">8</span>
+                <span>Collaboration Countries</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="section">
         <div class="section-heading">
-          <p class="section-label">Expertise</p>
+          <p class="section-label">Core Competencies</p>
           <h2>Research and technical strengths</h2>
+          <p>Methodological depth spanning computational algorithms and field environmental engineering.</p>
         </div>
         <div class="feature-grid four">
-          <article>
-            <h3>Environmental AI</h3>
-            <p>RNN, LSTM, WaveNet, TensorFlow, Python, and hybrid frameworks for environmental prediction.</p>
+          <article class="bento-card">
+            <span class="solution-icon">AI</span>
+            <h3>Environmental AI &amp; DL</h3>
+            <p>RNN, LSTM, BiLSTM, WaveNet, Graph Neural Networks (GNN), PINNs, Attention mechanisms, PyTorch, and TensorFlow.</p>
           </article>
-          <article>
-            <h3>Climate and Weather</h3>
-            <p>Precipitation forecasting, climate variability, CMIP6 analysis, ENSO impacts, and downscaling.</p>
+          <article class="bento-card">
+            <span class="solution-icon">CLI</span>
+            <h3>Climate &amp; NWP Dynamics</h3>
+            <p>Precipitation forecasting, CMIP6 climate downscaling, GCM screening, WRF cumulus parameterization, and ENSO teleconnections.</p>
           </article>
-          <article>
+          <article class="bento-card">
+            <span class="solution-icon">AGR</span>
             <h3>Agricultural Engineering</h3>
-            <p>Irrigation and drainage, crop water requirements, greenhouse water systems, and composting.</p>
+            <p>Irrigation optimization, crop water requirements, smart greenhouse water circulation, composting, and soil nutrient enrichment.</p>
           </article>
-          <article>
-            <h3>Data and GIS</h3>
-            <p>Hydrological data analysis, QGIS, statistical modeling, decision trees, random forests, and research workflows.</p>
+          <article class="bento-card">
+            <span class="solution-icon">GIS</span>
+            <h3>Geospatial &amp; Data Science</h3>
+            <p>Hydrological modeling, QGIS spatial analysis, remote sensing (GRACE, MODIS), Land Use Land Cover (LULC), and statistical modeling.</p>
           </article>
         </div>
       </section>
@@ -92,21 +112,21 @@
       <section class="section education-section">
         <div class="section-heading">
           <p class="section-label">Education</p>
-          <h2>Academic background</h2>
+          <h2>Academic qualifications and degrees</h2>
         </div>
         <div class="education-list">
           <article>
-            <span>2022 - 2025</span>
+            <span>2022 &ndash; 2025</span>
             <h3>Doctorate in Environment, Climate Change, and Sustainability</h3>
             <p>King Mongkut's University of Technology Thonburi, Bangkok, Thailand</p>
           </article>
           <article>
-            <span>2016 - 2018</span>
+            <span>2016 &ndash; 2018</span>
             <h3>Master of Agricultural Engineering</h3>
             <p>Bahauddin Zakariya University, Multan, Pakistan</p>
           </article>
           <article>
-            <span>2009 - 2013</span>
+            <span>2009 &ndash; 2013</span>
             <h3>Bachelor of Agricultural Engineering</h3>
             <p>Bahauddin Zakariya University, Multan, Pakistan</p>
           </article>
@@ -115,9 +135,8 @@
     </main>
 
     <footer class="site-footer">
-      <span>&copy; 2026 Dr. Muhammad Waqas</span>
-      <span>AI climate intelligence, smart agriculture, and environmental data science</span>
+      <span>&copy; 2026 Dr. Muhammad Waqas &bull; All Rights Reserved</span>
+      <span>AI Climate Intelligence &bull; Smart Agriculture &bull; Environmental Data Science</span>
     </footer>
   </body>
 </html>
-

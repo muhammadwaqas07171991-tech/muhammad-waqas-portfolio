@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Dr. Muhammad Waqas, environmental AI researcher in climate, water, hydrology, and smart agriculture."
+      content="Dr. Muhammad Waqas - Senior Researcher in Environmental AI, Climate Forecasting, Hydrology, and Smart Agriculture."
     >
-    <title>Dr. Muhammad Waqas | Environmental AI Researcher</title>
-    <link rel="stylesheet" href="styles.css?v=modern-20260801">
+    <title>Dr. Muhammad Waqas | Environmental AI & Climate Intelligence</title>
+    <link rel="stylesheet" href="styles.css?v=20260923">
+    <script src="background-animation.js" defer></script>
+    <script src="publications.js?v=20260923" defer></script>
     <script src="analytics.js?v=20260813" defer></script>
   </head>
   <body>
@@ -17,6 +19,7 @@
         <span class="brand-mark">MW</span>
         <span>Dr. Muhammad Waqas</span>
       </a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav').classList.toggle('mobile-active')">&#9776;</button>
       <nav class="nav" aria-label="Primary navigation">
         <a class="active" href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -30,36 +33,68 @@
 
     <main>
       <section class="hero hero-home">
-        <div class="hero-logo-bg" aria-hidden="true"></div>
         <div class="hero-content">
-          <p class="kicker">AI Climate Intelligence</p>
+          <div class="status-pill">
+            <span class="pulse-dot"></span>
+            <span>Senior Researcher @ Gyeongsang National University &bull; Environmental AI &amp; Hydrology</span>
+          </div>
+          <p class="kicker">AI Climate Intelligence &bull; Hydrology &bull; Agriculture</p>
           <h1>Dr. Muhammad Waqas</h1>
           <p class="hero-copy">
-            Environmental AI researcher working across climate risk, hydrology,
-            water intelligence, and smart agriculture.
+            Environmental AI researcher advancing predictive modeling across climate risk,
+            groundwater dynamics, river-basin hydrology, and smart agricultural systems.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="about.html">About Me</a>
-            <a class="button secondary" href="publications.html">My Publications</a>
+            <a class="button primary" href="publications.html">Explore Publications (<span data-publication-count>49</span>)</a>
+            <a class="button secondary" href="models.html">AI Models &amp; Workflows</a>
+            <a class="button secondary" href="about.html">About Me</a>
           </div>
         </div>
+
         <aside class="profile-panel portrait-card" aria-label="Profile summary">
-          <img src="profile-photo.png?v=20260808" alt="Portrait of Dr. Muhammad Waqas">
-          <div class="portrait-fallback" aria-hidden="true">MW</div>
-          <p class="portrait-name">Senior Researcher | Environmental AI</p>
-          <div>
-            <span class="metric">10+</span>
-            <span>Years in research, teaching, and applied R&amp;D</span>
+          <div class="portrait-img-wrapper">
+            <img src="profile-photo.png?v=20260917" alt="Portrait of Dr. Muhammad Waqas">
           </div>
-          <div>
-            <span class="metric">3</span>
-            <span>R&amp;D bases: Pakistan, Thailand, and South Korea</span>
-          </div>
-          <div>
-            <span class="metric">49</span>
-            <span>Publication files available with previews and downloads</span>
+          <p class="portrait-name">Dr. Muhammad Waqas</p>
+          <span class="portrait-badge">Senior Researcher | Environmental AI</span>
+          
+          <div class="metric-strip">
+            <div>
+              <span class="metric" data-publication-count>49</span>
+              <span>Peer-Reviewed Papers</span>
+            </div>
+            <div>
+              <span class="metric">10+</span>
+              <span>Years Applied R&amp;D</span>
+            </div>
+            <div>
+              <span class="metric">3</span>
+              <span>R&amp;D Bases (PK, TH, KR)</span>
+            </div>
           </div>
         </aside>
+      </section>
+
+      <!-- Featured 2026 Breakthrough Spotlight -->
+      <section class="section">
+        <div class="spotlight-card">
+          <div>
+            <span class="spotlight-badge">&starf; Latest 2026 Breakthrough Publication</span>
+            <h3>CMIP6-Driven Groundwater-Level Projections and Climate Risk Mapping for South Korea Using a Hybrid Deep Learning Framework</h3>
+            <p class="spotlight-meta">Water 2026, 18, 2358 &bull; MDPI &bull; HACL Model &bull; ACCESS, GISS, INM, NorESM Filtered Ensemble</p>
+            <p>
+              An attention-based hybrid CNN-BiLSTM (HACL) framework integrating 199 telemetric groundwater monitoring stations 
+              with multi-GCM CMIP6 climate scenarios and the Climate Groundwater Risk Index (CGRI) across South Korea.
+            </p>
+            <div class="hero-actions" style="margin-top: 20px;">
+              <a class="mini-button strong" href="papers/2026-49.pdf" target="_blank" rel="noopener">Open Full Paper (PDF)</a>
+              <a class="mini-button" href="publications.html#cmip6-driven-groundwater-level-projections-and-climate-risk-mapping-for-south-korea-using">View in Archive</a>
+            </div>
+          </div>
+          <div class="spotlight-preview-frame">
+            <img src="preview-2026-49.jpg" alt="First page preview of CMIP6 Groundwater-Level Projections publication">
+          </div>
+        </div>
       </section>
 
       <section class="section intro-band">
@@ -69,38 +104,68 @@
         </div>
         <p>
           I combine environmental domain knowledge with reproducible modeling to connect
-          complex climate, water, and agricultural datasets with clear scientific outputs.
+          complex climate, water, and agricultural datasets with clear scientific outputs and real-world policy insights.
         </p>
       </section>
 
       <section class="section">
         <div class="section-heading">
           <p class="section-label">Research Focus</p>
-          <h2>Core areas of my work</h2>
+          <h2>Core pillars of my scientific research</h2>
+          <p>Multi-disciplinary innovation connecting artificial intelligence with physical Earth systems.</p>
         </div>
-        <div class="feature-grid solution-grid">
-          <article>
+        <div class="feature-grid four">
+          <article class="bento-card">
             <span class="solution-icon">01</span>
             <h3>Climate Forecasting AI</h3>
-            <p>Machine learning and deep learning workflows for rainfall, drought, streamflow, and climate variability.</p>
+            <p>Machine learning and deep learning workflows for precipitation forecasting, drought projection, CMIP6 downscaling, and ENSO teleconnections.</p>
+            <div class="card-tags">
+              <span class="card-tag">CMIP6</span>
+              <span class="card-tag">WRF</span>
+              <span class="card-tag">Drought</span>
+              <span class="card-tag">Rainfall AI</span>
+            </div>
           </article>
-          <article>
+          <article class="bento-card">
             <span class="solution-icon">02</span>
-            <h3>Smart Agriculture Analytics</h3>
-            <p>Crop water demand, greenhouse systems, soil-climate data, yield risk, and farm-scale planning.</p>
+            <h3>Hydrology &amp; Water Systems</h3>
+            <p>River-basin modeling, groundwater head prediction, CGRI risk mapping, streamflow forecasting, and automated evapotranspiration estimation.</p>
+            <div class="card-tags">
+              <span class="card-tag">Groundwater</span>
+              <span class="card-tag">Streamflow</span>
+              <span class="card-tag">Runoff</span>
+              <span class="card-tag">PET</span>
+            </div>
           </article>
-          <article>
+          <article class="bento-card">
             <span class="solution-icon">03</span>
-            <h3>Research Outputs</h3>
-            <p>Model validation, technical reports, publications, dashboards, and reproducible workflows.</p>
+            <h3>Advanced Deep Learning</h3>
+            <p>Hybrid architectures including WaveNet-LSTM, Geospatial Graph Neural Networks (GNN), Attention mechanisms, and Physics-Informed Neural Networks (PINNs).</p>
+            <div class="card-tags">
+              <span class="card-tag">WaveNet</span>
+              <span class="card-tag">GNN</span>
+              <span class="card-tag">PINNs</span>
+              <span class="card-tag">BiLSTM</span>
+            </div>
+          </article>
+          <article class="bento-card">
+            <span class="solution-icon">04</span>
+            <h3>Smart Agriculture &amp; Remediation</h3>
+            <p>Crop water demand modeling, smart greenhouse circulation, circular biorefinery, biochar soil amendment, and heavy metal environmental remediation.</p>
+            <div class="card-tags">
+              <span class="card-tag">Crop Water</span>
+              <span class="card-tag">Biochar</span>
+              <span class="card-tag">Remediation</span>
+              <span class="card-tag">Greenhouse</span>
+            </div>
           </article>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>&copy; 2026 Dr. Muhammad Waqas</span>
-      <span>Environmental data science, climate change, and agricultural AI</span>
+      <span>&copy; 2026 Dr. Muhammad Waqas &bull; All Rights Reserved</span>
+      <span>AI Climate Intelligence &bull; Hydrology &bull; Smart Agriculture &bull; Environmental Data Science</span>
     </footer>
   </body>
 </html>

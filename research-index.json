@@ -40,7 +40,7 @@
                                                     "environmental data science"
                                                 ]
                 },
-    "generated":  "2026-08-01",
+    "generated":  "2026-09-23",
     "publications":  [
                          {
                              "title":  "On-Farm Composting of Agricultural Waste Materials for Sustainable Agriculture in Pakistan",
@@ -1938,6 +1938,60 @@
                              "preview":  "preview-2026-48.jpg",
                              "previewUrl":  "preview-2026-48.jpg",
                              "citationHint":  "Non-Noble Metal and Heteroatom Co-Doped Biochar for Cr(VI) Removal: Production, Mechanisms, and Performance Comparison. Muhammad Waqas, 2026."
+                         },
+                         {
+                             "title":  "CMIP6-Driven Groundwater-Level Projections and Climate Risk Mapping for South Korea Using a Hybrid Deep Learning Framework",
+                             "year":  2026,
+                             "type":  "pdf",
+                             "author":  "Muhammad Waqas",
+                             "topics":  [
+                                            "climate forecasting",
+                                            "hydrology and water resources",
+                                            "AI and machine learning"
+                                        ],
+                             "searchKeywords":  [
+                                                    "Muhammad Waqas",
+                                                    "Dr. Muhammad Waqas",
+                                                    "research publication",
+                                                    "citation-ready publication",
+                                                    "deep learning",
+                                                    "DL",
+                                                    "RNN",
+                                                    "LSTM",
+                                                    "WaveNet",
+                                                    "GAN",
+                                                    "graph neural network",
+                                                    "GNN",
+                                                    "hybrid deep learning",
+                                                    "hydrology",
+                                                    "hydrological modeling",
+                                                    "river basin modeling",
+                                                    "watershed modeling",
+                                                    "runoff estimation",
+                                                    "streamflow prediction",
+                                                    "water resources",
+                                                    "groundwater prediction",
+                                                    "evapotranspiration",
+                                                    "PET",
+                                                    "drought prediction",
+                                                    "climate risk",
+                                                    "climate variability",
+                                                    "climate change",
+                                                    "ENSO",
+                                                    "El Nino",
+                                                    "CMIP6",
+                                                    "GCM",
+                                                    "WRF",
+                                                    "NWP",
+                                                    "numerical weather prediction"
+                                                ],
+                             "landingPage":  "publications.html#cmip6-driven-groundwater-level-projections-and-climate-risk-mapping-for-south-korea-using",
+                             "file":  "papers/2026-49.pdf",
+                             "fileUrl":  "papers/2026-49.pdf",
+                             "absoluteFileUrl":  "https://muhammadwaqas07171991-tech.github.io/portfolio_site/papers/2026-49.pdf",
+                             "preview":  "preview-2026-49.jpg",
+                             "previewUrl":  "preview-2026-49.jpg",
+                             "citationHint":  "CMIP6-Driven Groundwater-Level Projections and Climate Risk Mapping for South Korea Using a Hybrid Deep Learning Framework. Muhammad Waqas, 2026."
                          }
                      ]
 }
