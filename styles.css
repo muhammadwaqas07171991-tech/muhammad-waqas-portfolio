@@ -64,33 +64,32 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Subtle topological grid overlay */
+/* Cinematic Landscape & Ambient Atmosphere (Climate, Hydrology, Agriculture) */
 body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(6, 13, 19, 0.70) 0%, rgba(6, 13, 19, 0.82) 45%, rgba(6, 13, 19, 0.92) 100%),
+    radial-gradient(circle at 82% 18%, rgba(251, 191, 36, 0.12), transparent 40%),
+    url("climate-hydrology-agriculture-bg.jpg") center top / cover no-repeat;
+  filter: saturate(1.15) contrast(1.05);
+}
+
+/* Subtle topological grid overlay */
+body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -2;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(56, 189, 248, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.025) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(rgba(56, 189, 248, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.02) 1px, transparent 1px);
+  background-size: 52px 52px;
   mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 80%);
-}
-
-/* Ambient luminous glow orbs */
-body::after {
-  content: '';
-  position: fixed;
-  top: -20vh;
-  left: 20vw;
-  width: 60vw;
-  height: 60vh;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.06), rgba(56, 189, 248, 0.04), transparent 70%);
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: -3;
 }
 
 /* Custom modern scrollbar */

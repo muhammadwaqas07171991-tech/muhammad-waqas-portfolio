@@ -1,20 +1,15 @@
 /**
- * Multi-Domain Environmental AI Canvas Engine
- * Visually combines:
- * 1. CLIMATE CHANGE: Global CMIP6 latitude/longitude projection arcs, atmospheric wind vectors,
- *    and shifting isobar weather fronts.
- * 2. HYDROLOGY: Sinuous dendritic river basin network, flowing water streamflow tracer pulses,
- *    and groundwater water-table equipotential flowlines.
- * 3. SMART AGRICULTURE: Precision agricultural field grid, soil moisture sensor telemetry pings,
- *    and crop evapotranspiration vapor streams.
- * 4. AI & DEEP LEARNING: Neural network nodes connecting these physical layers with pulsing
- *    synaptic data packets and interactive magnetic cursor connections.
+ * Environmental AI Cinematic Canvas Animation Engine
+ * Layers live interactive animations on top of the Climate-Hydrology-Agriculture Landscape:
+ * 1. AI Synaptic Graph: Floating neural nodes with pulsing data packets & dynamic cursor link
+ * 2. Hydrology River Current: Glowing cyan water flow tracers drifting down the river valley
+ * 3. Climate Precipitation: Gentle atmospheric rain / moisture particles falling from storm clouds
+ * 4. Agricultural Telemetry: Expanding bio-emerald sensor pings across crop terraces
  */
 
 (function () {
   'use strict';
 
-  // Respect user preference for reduced motion
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return;
 
@@ -30,127 +25,93 @@
   canvas.style.zIndex = '-1';
   document.body.prepend(canvas);
 
-  const ctx = canvas.getContext('2d', { alpha: false });
+  const ctx = canvas.getContext('2d', { alpha: true });
   let width = 0;
   let height = 0;
   let dpr = window.devicePixelRatio || 1;
   let animationFrameId = null;
   let globalTick = 0;
 
-  // Mouse tracking
+  // Mouse interaction
   const mouse = {
     x: -9999,
     y: -9999,
-    radius: 170,
+    radius: 180,
     active: false
   };
 
-  // Color Palette Constants
+  // Color Palette
   const PALETTE = {
-    cyan: { r: 56, g: 189, b: 248, hex: '#38bdf8' },      // AI / Streamflow Cyan
-    emerald: { r: 52, g: 211, b: 153, hex: '#34d399' },  // Agriculture / Soil Emerald
-    teal: { r: 20, g: 184, b: 166, hex: '#14b8a6' },     // Hydrology / Water Teal
-    violet: { r: 129, g: 140, b: 248, hex: '#818cf8' },  // Climate Change / Atmosphere
-    amber: { r: 251, g: 191, b: 36, hex: '#fbbf24' }     // Solar / Radiative Forcing
+    cyan: { r: 56, g: 189, b: 248, hex: '#38bdf8' },      // AI & Streamflow
+    emerald: { r: 52, g: 211, b: 153, hex: '#34d399' },  // Agriculture & Crops
+    teal: { r: 20, g: 184, b: 166, hex: '#14b8a6' },     // River Hydrology
+    violet: { r: 129, g: 140, b: 248, hex: '#818cf8' },  // Atmospheric Climate
+    gold: { r: 251, g: 191, b: 36, hex: '#fbbf24' }      // Solar Irradiance
   };
 
   // -------------------------------------------------------------
-  // 1. CLIMATE CHANGE: Global CMIP6 Grid Arcs & Wind Vectors
+  // 1. CLIMATE: Rain & Atmospheric Moisture Particles (Storm Cloud)
   // -------------------------------------------------------------
-  function drawClimateAtmosphere() {
-    ctx.save();
-    
-    // Draw Global Coordinate Grid Arcs (CMIP6 Climate GCM Grid)
-    const centerX = width * 0.85;
-    const centerY = height * 0.22;
-    const globeRadius = Math.min(width, height) * 0.42;
+  const rainDrops = [];
+  const rainCount = 42;
 
-    ctx.strokeStyle = 'rgba(129, 140, 248, 0.055)';
-    ctx.lineWidth = 1;
-
-    // Latitude circles
-    for (let r = 60; r <= globeRadius; r += 55) {
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, r, 0, Math.PI * 2);
-      ctx.stroke();
-    }
-
-    // Longitude elliptical arcs
-    for (let i = 1; i <= 4; i++) {
-      ctx.beginPath();
-      ctx.ellipse(centerX, centerY, globeRadius, globeRadius * (i * 0.22), (globalTick * 0.001) + (i * 0.4), 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(129, 140, 248, ${0.04 - i * 0.007})`;
-      ctx.stroke();
-    }
-
-    // Atmospheric Isobar Pressure Waves (Monsoon Moisture & Temperature Flux)
-    const layers = 3;
-    for (let l = 0; l < layers; l++) {
-      ctx.beginPath();
-      const waveAlpha = 0.035 + l * 0.02;
-      const grad = ctx.createLinearGradient(0, height * 0.4, width, height);
-      if (l === 0) {
-        grad.addColorStop(0, `rgba(129, 140, 248, ${waveAlpha})`);
-        grad.addColorStop(1, `rgba(56, 189, 248, ${waveAlpha})`);
-      } else if (l === 1) {
-        grad.addColorStop(0, `rgba(20, 184, 166, ${waveAlpha})`);
-        grad.addColorStop(1, `rgba(52, 211, 153, ${waveAlpha})`);
-      } else {
-        grad.addColorStop(0, `rgba(52, 211, 153, ${waveAlpha * 0.7})`);
-        grad.addColorStop(1, `rgba(129, 140, 248, ${waveAlpha * 0.7})`);
-      }
-
-      ctx.fillStyle = grad;
-      ctx.moveTo(0, height);
-
-      const segment = 40;
-      const points = Math.ceil(width / segment) + 1;
-      const baseH = height * (0.75 + l * 0.08);
-
-      for (let p = 0; p <= points; p++) {
-        const px = p * segment;
-        const py = baseH +
-          Math.sin(px * 0.0022 + globalTick * (0.01 + l * 0.004)) * (26 + l * 14) +
-          Math.cos(px * 0.0045 - globalTick * 0.008) * (14 + l * 8);
-        ctx.lineTo(px, py);
-      }
-
-      ctx.lineTo(width, height);
-      ctx.closePath();
-      ctx.fill();
-
-      // Glowing isobar crest line
-      ctx.strokeStyle = `rgba(56, 189, 248, ${0.14 - l * 0.035})`;
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    }
-
-    ctx.restore();
-  }
-
-  // -------------------------------------------------------------
-  // 2. HYDROLOGY: River Basin Network & Streamflow Tracers
-  // -------------------------------------------------------------
-  const streamTracers = [];
-  const tracerCount = 40;
-
-  // River branches definitions
-  const riverBranches = [
-    { startY: 0.35, midY: 0.52, endY: 0.68, cpX1: 0.25, cpX2: 0.65 },
-    { startY: 0.20, midY: 0.40, endY: 0.55, cpX1: 0.35, cpX2: 0.70 },
-    { startY: 0.50, midY: 0.62, endY: 0.82, cpX1: 0.40, cpX2: 0.75 }
-  ];
-
-  class StreamTracer {
+  class RainDrop {
     constructor() {
       this.reset(true);
     }
     reset(init = false) {
-      this.branch = Math.floor(Math.random() * riverBranches.length);
+      // Concentrated towards left and center under storm clouds
+      this.x = Math.random() * (width * 0.65);
+      this.y = init ? Math.random() * height : -15;
+      this.speed = Math.random() * 2.4 + 1.6;
+      this.wind = 0.8 + Math.random() * 0.6;
+      this.length = Math.random() * 16 + 8;
+      this.alpha = Math.random() * 0.28 + 0.12;
+    }
+    update() {
+      this.y += this.speed;
+      this.x += this.wind;
+      if (this.y > height || this.x > width * 0.75) {
+        this.reset(false);
+      }
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y);
+      ctx.lineTo(this.x + this.wind * 4, this.y + this.length);
+      ctx.strokeStyle = `rgba(56, 189, 248, ${this.alpha})`;
+      ctx.lineWidth = 1.1;
+      ctx.stroke();
+    }
+  }
+
+  // -------------------------------------------------------------
+  // 2. HYDROLOGY: River Streamflow Flow Tracers along Riverbed
+  // -------------------------------------------------------------
+  const riverTracers = [];
+  const tracerCount = 48;
+
+  // River path coordinates (approximating valley stream)
+  const riverPath = [
+    { x: 0.0, y: 0.72 },
+    { x: 0.16, y: 0.78 },
+    { x: 0.28, y: 0.66 },
+    { x: 0.36, y: 0.52 },
+    { x: 0.44, y: 0.49 },
+    { x: 0.52, y: 0.47 },
+    { x: 0.60, y: 0.48 }
+  ];
+
+  class RiverTracer {
+    constructor() {
+      this.reset(true);
+    }
+    reset(init = false) {
       this.progress = init ? Math.random() : 0;
-      this.speed = 0.0018 + Math.random() * 0.0022;
+      this.speed = 0.002 + Math.random() * 0.0025;
+      this.laneOffset = (Math.random() - 0.5) * 36;
       this.size = Math.random() * 2 + 1.2;
-      this.alpha = Math.random() * 0.4 + 0.25;
+      this.alpha = Math.random() * 0.45 + 0.25;
     }
     update() {
       this.progress += this.speed;
@@ -159,140 +120,84 @@
       }
     }
     draw() {
-      const b = riverBranches[this.branch];
-      // Cubic bezier interpolation along river path
-      const t = this.progress;
-      const x0 = 0, y0 = height * b.startY;
-      const x1 = width * b.cpX1, y1 = height * b.midY;
-      const x2 = width * b.cpX2, y2 = height * b.midY * 1.1;
-      const x3 = width, y3 = height * b.endY;
+      // Evaluate piecewise path along river
+      const totalSegments = riverPath.length - 1;
+      const scaledP = this.progress * totalSegments;
+      const index = Math.min(totalSegments - 1, Math.floor(scaledP));
+      const subT = scaledP - index;
 
-      // Bezier curve point
-      const cx = (1 - t) ** 3 * x0 + 3 * (1 - t) ** 2 * t * x1 + 3 * (1 - t) * t ** 2 * x2 + t ** 3 * x3;
-      const cy = (1 - t) ** 3 * y0 + 3 * (1 - t) ** 2 * t * y1 + 3 * (1 - t) * t ** 2 * y2 + t ** 3 * y3;
+      const p0 = riverPath[index];
+      const p1 = riverPath[index + 1];
 
+      // Flow coordinate
+      const rx = (p0.x + (p1.x - p0.x) * subT) * width;
+      const ry = (p0.y + (p1.y - p0.y) * subT) * height + this.laneOffset;
+
+      // Draw glowing fluid tracer
       ctx.beginPath();
-      ctx.arc(cx, cy, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(20, 184, 166, ${this.alpha})`;
-      ctx.shadowColor = '#38bdf8';
-      ctx.shadowBlur = 6;
+      ctx.arc(rx, ry, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(56, 189, 248, ${this.alpha})`;
+      ctx.shadowColor = '#00f2fe';
+      ctx.shadowBlur = 8;
       ctx.fill();
       ctx.shadowBlur = 0;
     }
   }
 
-  function drawRiverBasinNetwork() {
-    ctx.save();
-    // Draw subtle river branches (Catchment Drainage Network)
-    for (let i = 0; i < riverBranches.length; i++) {
-      const b = riverBranches[i];
-      ctx.beginPath();
-      ctx.moveTo(0, height * b.startY);
-      ctx.bezierCurveTo(
-        width * b.cpX1, height * b.midY,
-        width * b.cpX2, height * b.midY * 1.1,
-        width, height * b.endY
-      );
-      ctx.strokeStyle = `rgba(20, 184, 166, ${0.11 - i * 0.02})`;
-      ctx.lineWidth = 2.5 - i * 0.5;
-      ctx.stroke();
-
-      // Tributary feeder line
-      ctx.beginPath();
-      ctx.moveTo(width * (b.cpX1 - 0.15), height * (b.startY - 0.12));
-      ctx.quadraticCurveTo(
-        width * (b.cpX1), height * b.midY,
-        width * (b.cpX1 + 0.12), height * (b.midY * 1.05)
-      );
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.06)';
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-    }
-    ctx.restore();
-  }
-
   // -------------------------------------------------------------
-  // 3. SMART AGRICULTURE: Precision Field Grids & Sensor Pings
+  // 3. AGRICULTURE: Smart Farm Sensor Telemetry Pings
   // -------------------------------------------------------------
-  const agriSensors = [
-    { xRatio: 0.18, yRatio: 0.72, label: 'SOIL-M01' },
-    { xRatio: 0.42, yRatio: 0.65, label: 'GW-T02' },
-    { xRatio: 0.68, yRatio: 0.78, label: 'PET-S03' },
-    { xRatio: 0.88, yRatio: 0.60, label: 'CROP-R04' }
+  const cropSensors = [
+    { xRatio: 0.46, yRatio: 0.68, label: 'SOIL-MOISTURE' },
+    { xRatio: 0.62, yRatio: 0.64, label: 'CROP-ET' },
+    { xRatio: 0.78, yRatio: 0.72, label: 'PRECISION-IRR' },
+    { xRatio: 0.90, yRatio: 0.62, label: 'NITROGEN-OP' },
+    { xRatio: 0.72, yRatio: 0.54, label: 'CANOPY-TEMP' }
   ];
 
-  function drawAgricultureTelemetry() {
+  function drawCropTelemetry() {
     ctx.save();
-    // Perspective field boundary grid in lower third
-    ctx.strokeStyle = 'rgba(52, 211, 153, 0.04)';
-    ctx.lineWidth = 1;
-
-    const gridY = height * 0.70;
-    const gridRows = 5;
-    for (let r = 0; r < gridRows; r++) {
-      const y = gridY + (r * 32);
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(width, y);
-      ctx.stroke();
-    }
-
-    // Vanishing field grid lines
-    const cols = 9;
-    const vanishingX = width * 0.5;
-    const vanishingY = height * 0.45;
-    for (let c = 0; c <= cols; c++) {
-      const startX = (width / cols) * c;
-      ctx.beginPath();
-      ctx.moveTo(vanishingX, vanishingY);
-      ctx.lineTo(startX, height);
-      ctx.stroke();
-    }
-
-    // Telemetry Sensor Pings (Expanding circular pulses)
-    for (let i = 0; i < agriSensors.length; i++) {
-      const s = agriSensors[i];
+    for (let i = 0; i < cropSensors.length; i++) {
+      const s = cropSensors[i];
       const sx = width * s.xRatio;
       const sy = height * s.yRatio;
 
-      // Ping radar wave
-      const pingPhase = (globalTick * 0.02 + i * 1.5) % Math.PI;
-      const pingRadius = pingPhase * 16;
-      const pingAlpha = Math.max(0, (1 - pingPhase / Math.PI) * 0.4);
+      // Concentric expanding radar wave
+      const phase = (globalTick * 0.02 + i * 1.3) % Math.PI;
+      const radius = phase * 18;
+      const alpha = Math.max(0, (1 - phase / Math.PI) * 0.45);
 
       ctx.beginPath();
-      ctx.arc(sx, sy, pingRadius, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(52, 211, 153, ${pingAlpha})`;
+      ctx.arc(sx, sy, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(52, 211, 153, ${alpha})`;
       ctx.lineWidth = 1.2;
       ctx.stroke();
 
-      // Sensor Core Pin
+      // Sensor Pin Core
       ctx.beginPath();
       ctx.arc(sx, sy, 2.5, 0, Math.PI * 2);
       ctx.fillStyle = '#34d399';
       ctx.shadowColor = '#34d399';
-      ctx.shadowBlur = 8;
+      ctx.shadowBlur = 10;
       ctx.fill();
       ctx.shadowBlur = 0;
 
-      // Sensor telemetry text label
+      // Small telemetry badge
       ctx.font = '9px "Space Grotesk", monospace';
-      ctx.fillStyle = 'rgba(52, 211, 153, 0.45)';
-      ctx.fillText(s.label, sx + 6, sy - 4);
+      ctx.fillStyle = 'rgba(167, 243, 208, 0.6)';
+      ctx.fillText(s.label, sx + 6, sy - 5);
     }
     ctx.restore();
   }
 
   // -------------------------------------------------------------
-  // 4. AI & DEEP LEARNING: Interactive Neural Nodes & Synapses
+  // 4. AI NEURAL NETWORK: Interconnected Nodes & Synapses
   // -------------------------------------------------------------
   const nodes = [];
-  const nodeCount = Math.min(50, Math.max(24, Math.floor(window.innerWidth / 34)));
-  const maxConnectionDist = 155;
+  const nodeCount = Math.min(48, Math.max(22, Math.floor(window.innerWidth / 36)));
+  const maxConnDist = 150;
   const packets = [];
-  const maxPackets = 24;
-
-  const THEMES = ['ai', 'climate', 'hydrology', 'agriculture'];
+  const maxPackets = 26;
 
   class NeuralNode {
     constructor() {
@@ -301,14 +206,15 @@
     reset(init = false) {
       this.x = Math.random() * width;
       this.y = init ? Math.random() * height : (Math.random() > 0.5 ? -10 : height + 10);
-      this.vx = (Math.random() - 0.5) * 0.5;
-      this.vy = (Math.random() - 0.5) * 0.5;
-      this.theme = THEMES[Math.floor(Math.random() * THEMES.length)];
-      this.color = PALETTE[this.theme === 'ai' ? 'cyan' : (this.theme === 'climate' ? 'violet' : (this.theme === 'hydrology' ? 'teal' : 'emerald'))];
-      this.baseRadius = Math.random() * 2 + 2;
+      this.vx = (Math.random() - 0.5) * 0.45;
+      this.vy = (Math.random() - 0.5) * 0.45;
+      this.baseRadius = Math.random() * 2 + 1.8;
       this.radius = this.baseRadius;
       this.pulse = Math.random() * Math.PI * 2;
       this.orbitAngle = Math.random() * Math.PI * 2;
+      // Palette: Cyan (AI/Water), Emerald (Agri), Violet (Climate)
+      const colors = [PALETTE.cyan, PALETTE.emerald, PALETTE.teal, PALETTE.violet];
+      this.color = colors[Math.floor(Math.random() * colors.length)];
     }
     update() {
       this.x += this.vx;
@@ -319,51 +225,49 @@
       if (this.y < -20) this.y = height + 20;
       if (this.y > height + 20) this.y = -20;
 
-      // Mouse magnetic linkage
+      // Interactive mouse attraction
       if (mouse.active) {
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < mouse.radius && dist > 0) {
           const force = (mouse.radius - dist) / mouse.radius;
-          this.x += (dx / dist) * force * 1.6;
-          this.y += (dy / dist) * force * 1.6;
+          this.x += (dx / dist) * force * 1.5;
+          this.y += (dy / dist) * force * 1.5;
         }
       }
 
       this.pulse += 0.03;
-      this.radius = this.baseRadius + Math.sin(this.pulse) * 0.7;
+      this.radius = this.baseRadius + Math.sin(this.pulse) * 0.6;
       this.orbitAngle += 0.015;
     }
     draw() {
       const { r, g, b } = this.color;
 
-      // Soft outer aura
-      const aura = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 4);
-      aura.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.28)`);
+      // Soft glow
+      const aura = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 3.8);
+      aura.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.35)`);
       aura.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius * 4, 0, Math.PI * 2);
+      ctx.arc(this.x, this.y, this.radius * 3.8, 0, Math.PI * 2);
       ctx.fillStyle = aura;
       ctx.fill();
 
-      // Core node dot
+      // Core
       ctx.beginPath();
       ctx.arc(this.x, this.y, Math.max(1.5, this.radius), 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.95)`;
-      ctx.shadowColor = `rgba(${r}, ${g}, ${b}, 0.85)`;
+      ctx.shadowColor = `rgba(${r}, ${g}, ${b}, 0.9)`;
       ctx.shadowBlur = 8;
       ctx.fill();
       ctx.shadowBlur = 0;
 
-      // Rotating satellite ring for AI and climate nodes
-      if (this.theme === 'ai' || this.theme === 'climate') {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius * 2.6, this.orbitAngle, this.orbitAngle + 1.4);
-        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.55)`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      }
+      // Orbital satellite arc
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius * 2.5, this.orbitAngle, this.orbitAngle + 1.2);
+      ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.55)`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
     }
   }
 
@@ -398,15 +302,14 @@
     for (let i = 0; i < nodes.length; i++) {
       const nodeA = nodes[i];
 
-      // Node to node edges
       for (let j = i + 1; j < nodes.length; j++) {
         const nodeB = nodes[j];
         const dx = nodeB.x - nodeA.x;
         const dy = nodeB.y - nodeA.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < maxConnectionDist) {
-          const alpha = (1 - dist / maxConnectionDist) * 0.30;
+        if (dist < maxConnDist) {
+          const alpha = (1 - dist / maxConnDist) * 0.28;
           const grad = ctx.createLinearGradient(nodeA.x, nodeA.y, nodeB.x, nodeB.y);
           grad.addColorStop(0, `rgba(${nodeA.color.r}, ${nodeA.color.g}, ${nodeA.color.b}, ${alpha})`);
           grad.addColorStop(1, `rgba(${nodeB.color.r}, ${nodeB.color.g}, ${nodeB.color.b}, ${alpha})`);
@@ -418,21 +321,20 @@
           ctx.lineWidth = 0.9;
           ctx.stroke();
 
-          // Spontaneous data pulse
           if (packets.length < maxPackets && Math.random() < 0.0035 && dist < 120) {
             packets.push(new SynapticPacket(nodeA, nodeB));
           }
         }
       }
 
-      // Dynamic connection to Mouse
+      // Cursor magnetic laser link
       if (mouse.active) {
         const mdx = mouse.x - nodeA.x;
         const mdy = mouse.y - nodeA.y;
         const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
 
         if (mdist < mouse.radius) {
-          const mAlpha = (1 - mdist / mouse.radius) * 0.50;
+          const mAlpha = (1 - mdist / mouse.radius) * 0.52;
           ctx.beginPath();
           ctx.moveTo(nodeA.x, nodeA.y);
           ctx.lineTo(mouse.x, mouse.y);
@@ -443,10 +345,9 @@
       }
     }
 
-    // Mouse aura glow
     if (mouse.active) {
       const mouseGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 65);
-      mouseGrad.addColorStop(0, 'rgba(56, 189, 248, 0.22)');
+      mouseGrad.addColorStop(0, 'rgba(56, 189, 248, 0.24)');
       mouseGrad.addColorStop(1, 'rgba(56, 189, 248, 0)');
       ctx.beginPath();
       ctx.arc(mouse.x, mouse.y, 65, 0, Math.PI * 2);
@@ -461,14 +362,19 @@
   function initElements() {
     nodes.length = 0;
     packets.length = 0;
-    streamTracers.length = 0;
+    rainDrops.length = 0;
+    riverTracers.length = 0;
 
     for (let i = 0; i < nodeCount; i++) {
       nodes.push(new NeuralNode());
     }
 
+    for (let i = 0; i < rainCount; i++) {
+      rainDrops.push(new RainDrop());
+    }
+
     for (let i = 0; i < tracerCount; i++) {
-      streamTracers.push(new StreamTracer());
+      riverTracers.push(new RiverTracer());
     }
   }
 
@@ -490,24 +396,25 @@
   function render() {
     globalTick++;
 
-    // Deep slate-carbon canvas base
-    ctx.fillStyle = '#060d13';
-    ctx.fillRect(0, 0, width, height);
+    // Clear transparently so photographic background landscape shines through
+    ctx.clearRect(0, 0, width, height);
 
-    // 1. Climate Change: Atmosphere isobars & CMIP6 global grid arcs
-    drawClimateAtmosphere();
-
-    // 2. Hydrology: River basin network & streamflow tracers
-    drawRiverBasinNetwork();
-    for (let i = 0; i < streamTracers.length; i++) {
-      streamTracers[i].update();
-      streamTracers[i].draw();
+    // 1. Rain particles falling from storm clouds (Climate)
+    for (let i = 0; i < rainDrops.length; i++) {
+      rainDrops[i].update();
+      rainDrops[i].draw();
     }
 
-    // 3. Smart Agriculture: Precision field grid & sensor pings
-    drawAgricultureTelemetry();
+    // 2. River current tracers along stream (Hydrology)
+    for (let i = 0; i < riverTracers.length; i++) {
+      riverTracers[i].update();
+      riverTracers[i].draw();
+    }
 
-    // 4. AI & Deep Learning: Neural graph edges & data packets
+    // 3. Crop telemetry sensor pings (Agriculture)
+    drawCropTelemetry();
+
+    // 4. Neural synaptic network & cursor link (AI)
     drawNeuralConnections();
 
     for (let i = packets.length - 1; i >= 0; i--) {
@@ -519,7 +426,6 @@
       }
     }
 
-    // 5. Render active nodes
     for (let i = 0; i < nodes.length; i++) {
       nodes[i].update();
       nodes[i].draw();
