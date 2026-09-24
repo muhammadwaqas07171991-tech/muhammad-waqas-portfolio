@@ -68,7 +68,7 @@
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', '');
     video.preload = 'auto';
-    video.src = `bg-video-${pageTheme}.mp4`;
+    video.src = `bg-video-${pageTheme}.mp4?v=20260924-v5`;
 
     const onPlayReady = () => {
       if (!videoWrapper.contains(video)) {
