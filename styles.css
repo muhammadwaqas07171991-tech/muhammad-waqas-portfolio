@@ -55,7 +55,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #060d13;
+  background-color: transparent;
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 1rem;
@@ -65,9 +65,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Page background base (visuals handled seamlessly by .bg-backdrop and .bg-video-media in #bg-video-wrapper) */
+/* Page background base */
 body[data-page] {
-  background-color: #060d13;
+  background-color: transparent;
 }
 
 /* ==============================================================
@@ -78,7 +78,7 @@ body[data-page] {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -2;
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
   background: #060d13;
@@ -138,10 +138,10 @@ body[data-page="contact"] .bg-backdrop {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 100%;
+  height: 100%;
   min-width: 100%;
   min-height: 100%;
-  width: auto;
-  height: auto;
   transform: translate(-50%, -50%) scale(1.01);
   object-fit: cover;
   transition: opacity 0.8s ease;
@@ -165,7 +165,7 @@ body[data-page="contact"] .bg-backdrop {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -174,7 +174,7 @@ body::after {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   pointer-events: none;
   opacity: 0.25;
   background-image:
@@ -182,6 +182,18 @@ body::after {
     linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
   background-size: 52px 52px;
   mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 80%);
+}
+
+/* Foreground content stack */
+main,
+.page-hero,
+.hero,
+.section,
+.container,
+.footer,
+footer {
+  position: relative;
+  z-index: 2;
 }
 
 /* Custom modern scrollbar */
