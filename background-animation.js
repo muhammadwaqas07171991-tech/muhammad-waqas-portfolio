@@ -53,47 +53,47 @@
     backdrop.className = 'bg-backdrop';
     videoWrapper.appendChild(backdrop);
 
-    // 2. Video layer ONLY on home page (blended wireframe overlay)
-    if (pageTheme === 'home') {
-      const video = document.createElement('video');
-      video.className = 'bg-video-media';
-      video.autoplay = true;
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
-      video.preload = 'auto';
-
-      const srcPage = document.createElement('source');
-      srcPage.src = 'bg-video-home.mp4';
-      srcPage.type = 'video/mp4';
-
-      video.appendChild(srcPage);
-      videoWrapper.appendChild(video);
-
-      const onPlayReady = () => video.classList.add('is-ready');
-      video.addEventListener('canplaythrough', onPlayReady, { once: true });
-      video.addEventListener('playing', onPlayReady, { once: true });
-
-      const tryPlay = () => {
-        video.play().then(onPlayReady).catch(() => {
-          const startOnTouch = () => {
-            video.play().then(onPlayReady);
-            window.removeEventListener('pointerdown', startOnTouch);
-            window.removeEventListener('scroll', startOnTouch);
-          };
-          window.addEventListener('pointerdown', startOnTouch, { passive: true });
-          window.addEventListener('scroll', startOnTouch, { passive: true, once: true });
-        });
-      };
-      tryPlay();
-    }
-
     // 3. Crystal-clear ambient vignette overlay
     const overlay = document.createElement('div');
     overlay.className = 'bg-video-overlay';
     videoWrapper.appendChild(overlay);
+
+    // 2. Video layer: Play page-specific video if present (Home uses bg-video-home.mp4)
+    const video = document.createElement('video');
+    video.className = 'bg-video-media';
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.preload = 'auto';
+    video.src = `bg-video-${pageTheme}.mp4`;
+
+    const onPlayReady = () => {
+      if (!videoWrapper.contains(video)) {
+        videoWrapper.insertBefore(video, overlay);
+      }
+      video.classList.add('is-ready');
+    };
+
+    video.addEventListener('canplaythrough', onPlayReady, { once: true });
+    video.addEventListener('canplay', onPlayReady, { once: true });
+    video.addEventListener('loadeddata', onPlayReady, { once: true });
+
+    // Handle mobile / autoplay policies
+    const tryPlay = () => {
+      video.play().then(onPlayReady).catch(() => {
+        const startOnTouch = () => {
+          video.play().then(onPlayReady);
+          window.removeEventListener('pointerdown', startOnTouch);
+          window.removeEventListener('scroll', startOnTouch);
+        };
+        window.addEventListener('pointerdown', startOnTouch, { passive: true });
+        window.addEventListener('scroll', startOnTouch, { passive: true, once: true });
+      });
+    };
+    tryPlay();
 
     document.body.prepend(videoWrapper);
   }

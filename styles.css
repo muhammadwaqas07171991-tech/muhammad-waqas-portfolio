@@ -66,7 +66,7 @@ body {
 }
 
 /* Instant Direct Page Background Fallback */
-body[data-page="home"] { background: #060d13 url('bg-home.jpg') center center / cover no-repeat fixed; }
+body[data-page="home"] { background: #060d13 url('climate-hydrology-agriculture-bg.jpg') center center / cover no-repeat fixed; }
 body[data-page="about"] { background: #060d13 url('bg-about.jpg') center center / cover no-repeat fixed; }
 body[data-page="services"] { background: #060d13 url('bg-services.jpg') center center / cover no-repeat fixed; }
 body[data-page="experience"] { background: #060d13 url('bg-experience.jpg') center center / cover no-repeat fixed; }
@@ -109,9 +109,9 @@ body[data-page="contact"] { background: #060d13 url('bg-contact.jpg') center cen
   100% { transform: scale(1.04) translate(0.8%, -0.6%); }
 }
 
+/* On Home Page: Let user's original video animation shine directly at 100% */
 body[data-page="home"] .bg-backdrop {
-  background-image: url('bg-home.jpg');
-  filter: brightness(0.95) contrast(1.06) saturate(1.22);
+  display: none;
 }
 body[data-page="about"] .bg-backdrop {
   background-image: url('bg-about.jpg');
@@ -149,13 +149,8 @@ body[data-page="contact"] .bg-backdrop {
   transform: translate(-50%, -50%) scale(1.01);
   object-fit: cover;
   transition: opacity 0.8s ease;
-  opacity: 0;
-  mix-blend-mode: screen;
-}
-
-body[data-page="home"] .bg-video-media {
-  opacity: 0.75;
-  filter: brightness(1.05) contrast(1.05) saturate(1.30);
+  opacity: 1;
+  filter: brightness(1.05) contrast(1.04) saturate(1.28);
 }
 
 /* Crystal-Clear Ambient Vignette - keeps visuals 100% visible while preserving crisp typography */
