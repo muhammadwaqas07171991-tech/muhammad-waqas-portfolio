@@ -55,7 +55,7 @@ html {
 
 body {
   margin: 0;
-  background-color: transparent;
+  background-color: #060d13;
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 1rem;
@@ -64,6 +64,15 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Instant Direct Page Background Fallback */
+body[data-page="home"] { background: #060d13 url('bg-home.jpg') center center / cover no-repeat fixed; }
+body[data-page="about"] { background: #060d13 url('bg-about.jpg') center center / cover no-repeat fixed; }
+body[data-page="services"] { background: #060d13 url('bg-services.jpg') center center / cover no-repeat fixed; }
+body[data-page="experience"] { background: #060d13 url('bg-experience.jpg') center center / cover no-repeat fixed; }
+body[data-page="models"] { background: #060d13 url('bg-models.jpg') center center / cover no-repeat fixed; }
+body[data-page="publications"] { background: #060d13 url('bg-publications.jpg') center center / cover no-repeat fixed; }
+body[data-page="contact"] { background: #060d13 url('bg-contact.jpg') center center / cover no-repeat fixed; }
 
 /* ==============================================================
    Cinematic Background Video System & Environmental Atmosphere
