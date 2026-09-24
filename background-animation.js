@@ -40,7 +40,7 @@
   }
   document.body.setAttribute('data-page', pageTheme);
 
-  // Background wrapper injection
+  // Background wrapper handling & active playback guarantee
   let videoWrapper = document.getElementById('bg-video-wrapper');
   if (!videoWrapper) {
     videoWrapper = document.createElement('div');
@@ -53,49 +53,62 @@
     backdrop.className = 'bg-backdrop';
     videoWrapper.appendChild(backdrop);
 
+    // 2. Video layer: Play page-specific video
+    const dynamicVideo = document.createElement('video');
+    dynamicVideo.className = 'bg-video-media is-ready';
+    dynamicVideo.autoplay = true;
+    dynamicVideo.muted = true;
+    dynamicVideo.defaultMuted = true;
+    dynamicVideo.loop = true;
+    dynamicVideo.playsInline = true;
+    dynamicVideo.setAttribute('playsinline', '');
+    dynamicVideo.setAttribute('webkit-playsinline', '');
+    dynamicVideo.preload = 'auto';
+    dynamicVideo.src = `bg-video-${pageTheme}.mp4`;
+    videoWrapper.appendChild(dynamicVideo);
+
     // 3. Crystal-clear ambient vignette overlay
     const overlay = document.createElement('div');
     overlay.className = 'bg-video-overlay';
     videoWrapper.appendChild(overlay);
 
-    // 2. Video layer: Play page-specific video if present (Home uses bg-video-home.mp4)
-    const video = document.createElement('video');
-    video.className = 'bg-video-media';
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
-    video.preload = 'auto';
-    video.src = `bg-video-${pageTheme}.mp4?v=20260924-v5`;
-
-    const onPlayReady = () => {
-      if (!videoWrapper.contains(video)) {
-        videoWrapper.insertBefore(video, overlay);
-      }
-      video.classList.add('is-ready');
-    };
-
-    video.addEventListener('canplaythrough', onPlayReady, { once: true });
-    video.addEventListener('canplay', onPlayReady, { once: true });
-    video.addEventListener('loadeddata', onPlayReady, { once: true });
-
-    // Handle mobile / autoplay policies
-    const tryPlay = () => {
-      video.play().then(onPlayReady).catch(() => {
-        const startOnTouch = () => {
-          video.play().then(onPlayReady);
-          window.removeEventListener('pointerdown', startOnTouch);
-          window.removeEventListener('scroll', startOnTouch);
-        };
-        window.addEventListener('pointerdown', startOnTouch, { passive: true });
-        window.addEventListener('scroll', startOnTouch, { passive: true, once: true });
-      });
-    };
-    tryPlay();
-
     document.body.prepend(videoWrapper);
+  }
+
+  // Active playback assurance for all browsers (native HTML or dynamically injected)
+  const videoElem = videoWrapper.querySelector('video');
+  if (videoElem) {
+    videoElem.muted = true;
+    videoElem.defaultMuted = true;
+    videoElem.playsInline = true;
+    videoElem.classList.add('is-ready');
+
+    const ensurePlay = () => {
+      if (videoElem.paused) {
+        const playPromise = videoElem.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            const unlockUserGesture = () => {
+              videoElem.play().catch(() => {});
+              window.removeEventListener('pointerdown', unlockUserGesture);
+              window.removeEventListener('scroll', unlockUserGesture);
+              window.removeEventListener('keydown', unlockUserGesture);
+              window.removeEventListener('touchstart', unlockUserGesture);
+            };
+            window.addEventListener('pointerdown', unlockUserGesture, { passive: true, once: true });
+            window.addEventListener('scroll', unlockUserGesture, { passive: true, once: true });
+            window.addEventListener('keydown', unlockUserGesture, { passive: true, once: true });
+            window.addEventListener('touchstart', unlockUserGesture, { passive: true, once: true });
+          });
+        }
+      }
+    };
+
+    ensurePlay();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ensurePlay, { once: true });
+    }
+    window.addEventListener('load', ensurePlay, { once: true });
   }
 
   if (prefersReducedMotion) return;

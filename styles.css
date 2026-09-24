@@ -65,14 +65,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Instant Direct Page Background Fallback */
-body[data-page="home"] { background: #060d13 url('climate-hydrology-agriculture-bg.jpg') center center / cover no-repeat fixed; }
-body[data-page="about"] { background: #060d13 url('bg-about.jpg') center center / cover no-repeat fixed; }
-body[data-page="services"] { background: #060d13 url('bg-services.jpg') center center / cover no-repeat fixed; }
-body[data-page="experience"] { background: #060d13 url('bg-experience.jpg') center center / cover no-repeat fixed; }
-body[data-page="models"] { background: #060d13 url('bg-models.jpg') center center / cover no-repeat fixed; }
-body[data-page="publications"] { background: #060d13 url('bg-publications.jpg') center center / cover no-repeat fixed; }
-body[data-page="contact"] { background: #060d13 url('bg-contact.jpg') center center / cover no-repeat fixed; }
+/* Page background base (visuals handled seamlessly by .bg-backdrop and .bg-video-media in #bg-video-wrapper) */
+body[data-page] {
+  background-color: #060d13;
+}
 
 /* ==============================================================
    Cinematic Background Video System & Environmental Atmosphere
@@ -101,6 +97,7 @@ body[data-page="contact"] { background: #060d13 url('bg-contact.jpg') center cen
   transform-origin: center center;
   animation: subtleBackdropPan 45s ease-in-out infinite alternate;
   opacity: 1;
+  z-index: 0;
 }
 
 @keyframes subtleBackdropPan {
@@ -109,9 +106,8 @@ body[data-page="contact"] { background: #060d13 url('bg-contact.jpg') center cen
   100% { transform: scale(1.04) translate(0.8%, -0.6%); }
 }
 
-/* On Home Page: Let user's original video animation shine directly at 100% */
 body[data-page="home"] .bg-backdrop {
-  display: none;
+  background-image: url('climate-hydrology-agriculture-bg.jpg');
 }
 body[data-page="about"] .bg-backdrop {
   background-image: url('bg-about.jpg');
@@ -151,13 +147,14 @@ body[data-page="contact"] .bg-backdrop {
   transition: opacity 0.8s ease;
   opacity: 1;
   filter: brightness(1.05) contrast(1.04) saturate(1.28);
+  z-index: 1;
 }
 
 /* Crystal-Clear Ambient Vignette - keeps visuals 100% visible while preserving crisp typography */
 .bg-video-overlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   background: radial-gradient(ellipse 130% 90% at 50% 25%, rgba(6, 13, 19, 0.22) 0%, rgba(6, 13, 19, 0.45) 75%, rgba(6, 13, 19, 0.72) 100%);
   pointer-events: none;
 }
