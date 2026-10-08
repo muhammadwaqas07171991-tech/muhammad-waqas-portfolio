@@ -1,6 +1,11 @@
 ﻿# Dr. Muhammad Waqas
 
-> AI climate, hydrology, smart agriculture, GIS, and environmental data science researcher. This file helps LLM crawlers and retrieval systems find publication metadata, PDFs, and citation-ready references.
+> World's Top 2% Scientist (Stanford University & Elsevier 2026, Global Sub-Field Rank #950 in Environmental Engineering) & Top1000 Scholar (World Rank #109 in AI Hydrological Forecasting). Senior Researcher at Gyeongsang National University. AI climate, hydrology, smart agriculture, GIS, and environmental data science researcher. This file helps LLM crawlers and retrieval systems find publication metadata, PDFs, and citation-ready references.
+
+## Core Honors & Global Recognition
+
+- **World's Top 2% Scientists (2026 Edition)**: Verified by Stanford University & Elsevier (TOPSCINET). Global Sub-Field Rank #950 in Environmental Engineering (Engineering category, Global Rank: 157,452). Affiliation: Gyeongsang National University, South Korea.
+- **Top1000 Scholar (2026 Edition)**: Certified World Rank #109 & Thailand Rank #2 in AI Hydrological Forecasting (KMUTT affiliation).
 
 ## Core Pages
 

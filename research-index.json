@@ -1,9 +1,13 @@
 ﻿{
     "profile":  {
                     "name":  "Dr. Muhammad Waqas",
-                    "description":  "AI climate, hydrology, smart agriculture, GIS, and environmental data science researcher.",
+                    "description":  "World\u0027s Top 2% Scientist (Stanford University \u0026 Elsevier 2026, Global Sub-Field Rank #950 in Environmental Engineering) \u0026 Top1000 Scholar (World Rank #109 in AI Hydrological Forecasting). Senior Researcher at Gyeongsang National University.",
                     "site":  "https://muhammadwaqas07171991-tech.github.io/portfolio_site/",
                     "primaryPublicationPage":  "https://muhammadwaqas07171991-tech.github.io/portfolio_site/publications.html",
+                    "honors":  [
+                                   "World\u0027s Top 2% Scientists (Stanford University \u0026 Elsevier, 2026 Edition - Sub-Field Rank #950 in Environmental Engineering)",
+                                   "Top1000 Scholar (2026 Edition - Certified World Rank #109, Thailand Rank #2 in AI Hydrological Forecasting)"
+                               ],
                     "researchThemes":  [
                                            "AI climate forecasting",
                                            "hydrology and river-basin modeling",
@@ -14,6 +18,10 @@
                     "discoverabilityKeywords":  [
                                                     "Muhammad Waqas publications",
                                                     "Dr Muhammad Waqas research",
+                                                    "Stanford Top 2% Scientist",
+                                                    "World Top 2% Scientists Muhammad Waqas",
+                                                    "Top 2% Environmental Engineering",
+                                                    "Top1000 Scholar Muhammad Waqas",
                                                     "AI climate modeling",
                                                     "machine learning hydrology",
                                                     "deep learning hydrology",
@@ -40,7 +48,7 @@
                                                     "environmental data science"
                                                 ]
                 },
-    "generated":  "2026-10-05",
+    "generated":  "2026-10-08",
     "publications":  [
                          {
                              "title":  "On-Farm Composting of Agricultural Waste Materials for Sustainable Agriculture in Pakistan",
