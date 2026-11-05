@@ -341,6 +341,13 @@ const publicationFiles = [
     "title": "CMIP6-Driven Groundwater-Level Projections and Climate Risk Mapping for South Korea Using a Hybrid Deep Learning Framework",
     "file": "papers/2026-49.pdf",
     "preview": "preview-2026-49.jpg"
+  },
+  {
+    "year": "2026",
+    "type": "pdf",
+    "title": "Weekly Cyanobacterial Bloom-Risk Early Warning Using Deep LSTM and Hybrid CNN-LSTM Models in Jinyang Lake, South Korea",
+    "file": "papers/2026-50.pdf",
+    "preview": "preview-2026-50.jpg"
   }
 ];
 
@@ -371,8 +378,9 @@ function absoluteUrl(path) {
 
 const publicationKeywordGroups = [
   ["machine learning", "ml", "soft computing", "artificial intelligence", "ai", "data-driven model", "predictive modeling"],
-  ["deep learning", "dl", "rnn", "lstm", "wavenet", "gan", "generative adversarial network", "graph neural network", "gnn", "hybrid deep learning"],
-  ["hydrology", "hydrological modeling", "river basin", "watershed", "runoff", "rainfall runoff", "streamflow", "water resources", "ungauged basin", "regionalization"],
+  ["deep learning", "dl", "rnn", "lstm", "cnn-lstm", "wavenet", "gan", "generative adversarial network", "graph neural network", "gnn", "hybrid deep learning"],
+  ["hydrology", "hydrological modeling", "river basin", "watershed", "runoff", "rainfall runoff", "streamflow", "water resources", "ungauged basin", "regionalization", "jinyang lake", "namgang dam", "reservoir"],
+  ["water quality", "cyanobacterial", "cyanobacteria", "harmful algal blooms", "habs", "algal bloom", "bloom-risk", "early warning", "chlorophyll-a", "eutrophication"],
   ["groundwater", "groundwater level", "gwl", "cgri", "climate groundwater risk index", "aquifer", "hydrogeology"],
   ["rainfall", "precipitation", "rainfall forecasting", "precipitation forecasting", "daily precipitation", "downscaling", "meteorological forecasting", "weather prediction"],
   ["drought", "meteorological drought", "climate risk", "climate variability", "climate change", "enso", "el nino", "cmip6", "gcm", "wrf", "nwp", "numerical weather prediction"],
@@ -400,7 +408,9 @@ const compactKeywordLabels = [
   ["graph neural network", "Graph neural network"],
   ["biochar", "Biochar"],
   ["remediation", "Remediation"],
-  ["wastewater", "Wastewater"]
+  ["wastewater", "Wastewater"],
+  ["cyanobacterial", "Water quality & HABs"],
+  ["jinyang", "Reservoir early warning"]
 ];
 
 let activePublicationFilter = "all";
