@@ -48,7 +48,7 @@
                                                     "environmental data science"
                                                 ]
                 },
-    "generated":  "2026-11-05",
+    "generated":  "2026-11-24",
     "publications":  [
                          {
                              "title":  "On-Farm Composting of Agricultural Waste Materials for Sustainable Agriculture in Pakistan",
@@ -127,7 +127,8 @@
                                                     "cyanobacterial bloom",
                                                     "harmful algal blooms",
                                                     "HABs",
-                                                    "Jinyang Lake"
+                                                    "Jinyang Lake",
+                                                    "water scarcity"
                                                 ],
                              "landingPage":  "publications.html#runoff-estimation-using-advanced-soft-computing-techniques-a-case-study-of-mangla-watershe",
                              "file":  "papers/2022-02.pdf",
@@ -216,9 +217,11 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "GIS",
                                                     "QGIS",
                                                     "remote sensing",
+                                                    "Earth observation",
                                                     "land use land cover",
                                                     "LULC",
                                                     "geospatial modeling",
@@ -319,9 +322,11 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "GIS",
                                                     "QGIS",
                                                     "remote sensing",
+                                                    "Earth observation",
                                                     "land use land cover",
                                                     "LULC",
                                                     "geospatial modeling",
@@ -449,7 +454,8 @@
                                                     "cyanobacterial bloom",
                                                     "harmful algal blooms",
                                                     "HABs",
-                                                    "Jinyang Lake"
+                                                    "Jinyang Lake",
+                                                    "water scarcity"
                                                 ],
                              "landingPage":  "publications.html#a-critical-review-of-rnn-and-lstm-variants-in-hydrological-time-series-predictions",
                              "file":  "papers/2024-10.pdf",
@@ -486,7 +492,9 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#assessment-of-cmip6-gcms-for-selecting-a-suitable-climate-model-for-precipitation-projecti",
                              "file":  "papers/2024-11.pdf",
@@ -561,6 +569,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "drought prediction",
                                                     "climate risk",
                                                     "climate variability",
@@ -572,6 +581,7 @@
                                                     "WRF",
                                                     "NWP",
                                                     "numerical weather prediction",
+                                                    "EWSVI",
                                                     "smart agriculture",
                                                     "climate-smart agriculture",
                                                     "crop water requirements",
@@ -634,7 +644,8 @@
                                                     "cyanobacterial bloom",
                                                     "harmful algal blooms",
                                                     "HABs",
-                                                    "Jinyang Lake"
+                                                    "Jinyang Lake",
+                                                    "water scarcity"
                                                 ],
                              "landingPage":  "publications.html#incorporating-novel-input-variable-selection-method-for-in-the-different-water-basins-of-t",
                              "file":  "papers/2024-15.pdf",
@@ -671,7 +682,9 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#influence-of-el-nino-southern-oscillation-on-precipitation-variability-in-northeast-thaila",
                              "file":  "papers/2024-16.pdf",
@@ -710,6 +723,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "biochar",
                                                     "composting",
                                                     "environmental remediation",
@@ -798,7 +812,9 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#time-series-trend-analysis-and-forecasting-of-climate-variability-using-deep-learning-in-t",
                              "file":  "papers/2024-19.pdf",
@@ -848,6 +864,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "rainfall forecasting",
                                                     "precipitation forecasting",
                                                     "precipitation downscaling",
@@ -864,7 +881,8 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#a-deep-learning-perspective-on-meteorological-droughts-prediction-in-the-mun-river-basin-t",
                              "file":  "papers/2024-20.pdf",
@@ -901,7 +919,9 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#advancements-in-daily-precipitation-forecasting-a-deep-dive-into-daily-precipitation-forec",
                              "file":  "papers/2024-21.pdf",
@@ -948,7 +968,8 @@
                                                     "cyanobacterial bloom",
                                                     "harmful algal blooms",
                                                     "HABs",
-                                                    "Jinyang Lake"
+                                                    "Jinyang Lake",
+                                                    "water scarcity"
                                                 ],
                              "landingPage":  "publications.html#hydrological-model-parameter-regionalization-runoff-estimation-using-machine-learning-tech",
                              "file":  "papers/2024-22.pdf",
@@ -1110,6 +1131,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "drought prediction",
                                                     "climate risk",
                                                     "climate variability",
@@ -1121,9 +1143,11 @@
                                                     "WRF",
                                                     "NWP",
                                                     "numerical weather prediction",
+                                                    "EWSVI",
                                                     "GIS",
                                                     "QGIS",
                                                     "remote sensing",
+                                                    "Earth observation",
                                                     "land use land cover",
                                                     "LULC",
                                                     "geospatial modeling",
@@ -1162,6 +1186,8 @@
                                                     "WRF",
                                                     "NWP",
                                                     "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI",
                                                     "smart agriculture",
                                                     "climate-smart agriculture",
                                                     "crop water requirements",
@@ -1200,7 +1226,9 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#conference-paper-1-impact-of-climate-change-and-lifestyle-on-nutritional-adequacy-and-sust",
                              "file":  "papers/2025-29.pdf",
@@ -1250,7 +1278,9 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#detection-of-climate-change-signals-using-precipitation-and-temperature-time-series-by-a-h",
                              "file":  "papers/2025-30.pdf",
@@ -1348,6 +1378,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "drought prediction",
                                                     "climate risk",
                                                     "climate variability",
@@ -1358,7 +1389,8 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#multidimensional-analysis-of-climate-induced-streamflow-variability-using-cmip6-data-and-a",
                              "file":  "papers/2025-33.pdf",
@@ -1432,6 +1464,8 @@
                                                     "WRF",
                                                     "NWP",
                                                     "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI",
                                                     "smart agriculture",
                                                     "climate-smart agriculture",
                                                     "crop water requirements",
@@ -1474,6 +1508,8 @@
                                                     "WRF",
                                                     "NWP",
                                                     "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI",
                                                     "smart agriculture",
                                                     "climate-smart agriculture",
                                                     "crop water requirements",
@@ -1616,6 +1652,8 @@
                                                     "WRF",
                                                     "NWP",
                                                     "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI",
                                                     "smart agriculture",
                                                     "climate-smart agriculture",
                                                     "crop water requirements",
@@ -1627,6 +1665,7 @@
                                                     "GIS",
                                                     "QGIS",
                                                     "remote sensing",
+                                                    "Earth observation",
                                                     "land use land cover",
                                                     "LULC",
                                                     "geospatial modeling",
@@ -1669,6 +1708,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "biochar",
                                                     "composting",
                                                     "environmental remediation",
@@ -1725,7 +1765,8 @@
                                                     "cyanobacterial bloom",
                                                     "harmful algal blooms",
                                                     "HABs",
-                                                    "Jinyang Lake"
+                                                    "Jinyang Lake",
+                                                    "water scarcity"
                                                 ],
                              "landingPage":  "publications.html#deep-learning-based-direct-and-indirect-potential-evapotranspiration",
                              "file":  "papers/2026-41.pdf",
@@ -1782,7 +1823,8 @@
                                                     "cyanobacterial bloom",
                                                     "harmful algal blooms",
                                                     "HABs",
-                                                    "Jinyang Lake"
+                                                    "Jinyang Lake",
+                                                    "water scarcity"
                                                 ],
                              "landingPage":  "publications.html#machine-learning-and-deep-learning-in-river-basin-modeling",
                              "file":  "papers/2026-42.pdf",
@@ -1863,6 +1905,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "smart agriculture",
                                                     "climate-smart agriculture",
                                                     "crop water requirements",
@@ -1907,7 +1950,9 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "water scarcity",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#high-resolution-evaluation-of-wrf-cumulus-parameterization-schemes-for-rainfall-prediction",
                              "file":  "papers/2026-45.pdf",
@@ -1946,6 +1991,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "rainfall forecasting",
                                                     "precipitation forecasting",
                                                     "precipitation downscaling",
@@ -2000,6 +2046,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "rainfall forecasting",
                                                     "precipitation forecasting",
                                                     "precipitation downscaling",
@@ -2084,6 +2131,7 @@
                                                     "harmful algal blooms",
                                                     "HABs",
                                                     "Jinyang Lake",
+                                                    "water scarcity",
                                                     "drought prediction",
                                                     "climate risk",
                                                     "climate variability",
@@ -2094,7 +2142,8 @@
                                                     "GCM",
                                                     "WRF",
                                                     "NWP",
-                                                    "numerical weather prediction"
+                                                    "numerical weather prediction",
+                                                    "EWSVI"
                                                 ],
                              "landingPage":  "publications.html#cmip6-driven-groundwater-level-projections-and-climate-risk-mapping-for-south-korea-using",
                              "file":  "papers/2026-49.pdf",
@@ -2142,7 +2191,8 @@
                                                     "cyanobacterial bloom",
                                                     "harmful algal blooms",
                                                     "HABs",
-                                                    "Jinyang Lake"
+                                                    "Jinyang Lake",
+                                                    "water scarcity"
                                                 ],
                              "landingPage":  "publications.html#weekly-cyanobacterial-bloom-risk-early-warning-using-deep-lstm-and-hybrid-cnn-lstm-models",
                              "file":  "papers/2026-50.pdf",
@@ -2151,6 +2201,76 @@
                              "preview":  "preview-2026-50.jpg",
                              "previewUrl":  "preview-2026-50.jpg",
                              "citationHint":  "Weekly Cyanobacterial Bloom-Risk Early Warning Using Deep LSTM and Hybrid CNN-LSTM Models in Jinyang Lake, South Korea. Muhammad Waqas, 2026."
+                         },
+                         {
+                             "title":  "ENSO-Associated Water Scarcity Across Asia: A Machine Learning Framework Using Earth Observation and CMIP6 Data",
+                             "year":  2026,
+                             "type":  "pdf",
+                             "author":  "Muhammad Waqas",
+                             "topics":  [
+                                            "climate forecasting",
+                                            "hydrology and water resources",
+                                            "AI and machine learning",
+                                            "GIS and remote sensing"
+                                        ],
+                             "searchKeywords":  [
+                                                    "Muhammad Waqas",
+                                                    "Dr. Muhammad Waqas",
+                                                    "research publication",
+                                                    "citation-ready publication",
+                                                    "machine learning",
+                                                    "ML",
+                                                    "artificial intelligence",
+                                                    "AI",
+                                                    "soft computing",
+                                                    "predictive modeling",
+                                                    "data-driven model",
+                                                    "physics-informed neural networks",
+                                                    "PINNs",
+                                                    "hydrology",
+                                                    "hydrological modeling",
+                                                    "river basin modeling",
+                                                    "watershed modeling",
+                                                    "runoff estimation",
+                                                    "streamflow prediction",
+                                                    "water resources",
+                                                    "groundwater prediction",
+                                                    "evapotranspiration",
+                                                    "PET",
+                                                    "water quality",
+                                                    "cyanobacterial bloom",
+                                                    "harmful algal blooms",
+                                                    "HABs",
+                                                    "Jinyang Lake",
+                                                    "water scarcity",
+                                                    "drought prediction",
+                                                    "climate risk",
+                                                    "climate variability",
+                                                    "climate change",
+                                                    "ENSO",
+                                                    "El Nino",
+                                                    "CMIP6",
+                                                    "GCM",
+                                                    "WRF",
+                                                    "NWP",
+                                                    "numerical weather prediction",
+                                                    "EWSVI",
+                                                    "GIS",
+                                                    "QGIS",
+                                                    "remote sensing",
+                                                    "Earth observation",
+                                                    "land use land cover",
+                                                    "LULC",
+                                                    "geospatial modeling",
+                                                    "spatial feature engineering"
+                                                ],
+                             "landingPage":  "publications.html#enso-associated-water-scarcity-across-asia-a-machine-learning-framework-using-earth-observ",
+                             "file":  "papers/2026-51.pdf",
+                             "fileUrl":  "papers/2026-51.pdf",
+                             "absoluteFileUrl":  "https://muhammadwaqas07171991-tech.github.io/portfolio_site/papers/2026-51.pdf",
+                             "preview":  "preview-2026-51.jpg",
+                             "previewUrl":  "preview-2026-51.jpg",
+                             "citationHint":  "ENSO-Associated Water Scarcity Across Asia: A Machine Learning Framework Using Earth Observation and CMIP6 Data. Muhammad Waqas, 2026."
                          }
                      ]
 }

@@ -348,6 +348,13 @@ const publicationFiles = [
     "title": "Weekly Cyanobacterial Bloom-Risk Early Warning Using Deep LSTM and Hybrid CNN-LSTM Models in Jinyang Lake, South Korea",
     "file": "papers/2026-50.pdf",
     "preview": "preview-2026-50.jpg"
+  },
+  {
+    "year": "2026",
+    "type": "pdf",
+    "title": "ENSO-Associated Water Scarcity Across Asia: A Machine Learning Framework Using Earth Observation and CMIP6 Data",
+    "file": "papers/2026-51.pdf",
+    "preview": "preview-2026-51.jpg"
   }
 ];
 
@@ -379,14 +386,14 @@ function absoluteUrl(path) {
 const publicationKeywordGroups = [
   ["machine learning", "ml", "soft computing", "artificial intelligence", "ai", "data-driven model", "predictive modeling"],
   ["deep learning", "dl", "rnn", "lstm", "cnn-lstm", "wavenet", "gan", "generative adversarial network", "graph neural network", "gnn", "hybrid deep learning"],
-  ["hydrology", "hydrological modeling", "river basin", "watershed", "runoff", "rainfall runoff", "streamflow", "water resources", "ungauged basin", "regionalization", "jinyang lake", "namgang dam", "reservoir"],
+  ["hydrology", "hydrological modeling", "river basin", "watershed", "runoff", "rainfall runoff", "streamflow", "water resources", "water scarcity", "ungauged basin", "regionalization", "jinyang lake", "namgang dam", "reservoir"],
   ["water quality", "cyanobacterial", "cyanobacteria", "harmful algal blooms", "habs", "algal bloom", "bloom-risk", "early warning", "chlorophyll-a", "eutrophication"],
   ["groundwater", "groundwater level", "gwl", "cgri", "climate groundwater risk index", "aquifer", "hydrogeology"],
   ["rainfall", "precipitation", "rainfall forecasting", "precipitation forecasting", "daily precipitation", "downscaling", "meteorological forecasting", "weather prediction"],
-  ["drought", "meteorological drought", "climate risk", "climate variability", "climate change", "enso", "el nino", "cmip6", "gcm", "wrf", "nwp", "numerical weather prediction"],
+  ["drought", "meteorological drought", "climate risk", "climate variability", "climate change", "enso", "el nino", "cmip6", "gcm", "wrf", "nwp", "numerical weather prediction", "ewsvi"],
   ["evapotranspiration", "potential evapotranspiration", "pet", "crop water requirement", "crop water requirements", "irrigation", "coffee farming", "greenhouse", "smart agriculture"],
   ["agriculture", "food security", "crop yield", "rice yield", "rainfed rice", "climate-smart agriculture", "sustainable agriculture", "crop risk"],
-  ["gis", "qgis", "remote sensing", "land use", "land cover", "lulc", "geospatial", "spatial modeling", "spatial feature engineering"],
+  ["gis", "qgis", "remote sensing", "earth observation", "land use", "land cover", "lulc", "geospatial", "spatial modeling", "spatial feature engineering"],
   ["biochar", "remediation", "soil amendment", "wastewater", "pesticide wastewater", "phthalate", "chromium", "composting", "agricultural waste", "biorefinery"],
   ["environmental data science", "environmental modeling", "sustainability", "decision support", "water intelligence", "climate adaptation"]
 ];
@@ -400,11 +407,13 @@ const compactKeywordLabels = [
   ["drought", "Drought"],
   ["enso", "ENSO"],
   ["cmip6", "CMIP6"],
+  ["water scarcity", "Water scarcity"],
   ["wrf", "WRF"],
   ["evapotranspiration", "Evapotranspiration"],
   ["crop", "Agriculture"],
   ["gis", "GIS"],
   ["remote sensing", "Remote sensing"],
+  ["earth observation", "Earth observation"],
   ["graph neural network", "Graph neural network"],
   ["biochar", "Biochar"],
   ["remediation", "Remediation"],
